@@ -1,0 +1,91 @@
+#define MODULES_DIRECTORY node_modules
+
+#include "cfgIslands.hpp"
+#include "cfgParams.hpp"
+
+#include "node_modules\grad-fortifications\grad_fortifications.hpp"
+
+//HEADER =======================================================================
+class Header
+{
+    gameType = Seize;
+    minPlayers = 2;
+    maxPlayers = 84;
+};
+
+//LOAD SCREEN ==================================================================
+onLoadName = "MONEY IN THE MIST";
+onLoadMission = "";
+author = "McDiod für Gruppe Adler";
+loadScreen = "data\loadpic.paa";
+
+//MISC =========================================================================
+respawn = 3;
+respawnDelay = 9999;
+respawnVehicleDelay = 0;
+respawnTemplates[] = {"Base"};
+respawnOnStart = -1;
+respawnDialog = 0;
+disabledAI = 1;
+enableDebugConsole = 1;
+allowFunctionsRecompile = 1;
+
+//MISSION ======================================================================
+class cfgMission {
+    #include "cfgMission.hpp"
+};
+
+//FUNCTIONS ====================================================================
+class CfgFunctions {
+    #include "functions\cfgFunctions.hpp"
+
+    #include "node_modules\grad-loadout\cfgFunctions.hpp"
+    #include "node_modules\grad-fortifications\cfgFunctions.hpp"
+};
+
+//SOUNDS =======================================================================
+class CfgSounds {
+
+};
+
+//WEAPONS THAT CAN HAVE MAGNIFYING SCOPES ======================================
+class CfgScopeWeapons {
+
+};
+
+//LOADOUTS =====================================================================
+class Loadouts {
+    resetLoadout = 0;
+    baseDelay = 10;
+    handleRadios = 1;
+
+    class Faction {
+        #include "node_modules\grad-factions-tvt\loadouts.hpp"
+    };
+};
+
+
+//FORTIFICATIONS ===============================================================
+class CfgGradFortifications {
+    canDemolishDefault = 1;
+    buildTimeFactor = 0.01;
+    packUpTimeFactor = 0.01;
+    fortificationOwnerType = "SIDE";
+    demolitionTimeFactor = 1.6;
+
+    class Fortifications {
+
+    };
+};
+
+//NOTIFICATIONS ================================================================
+class CfgNotifications
+{
+    class mitm_notification {
+        title = "%1";
+        iconPicture = "\A3\ui_f\data\map\markers\military\warning_CA.paa";
+        description = "%2";
+        duration = 5;
+        priority = 0;
+    };
+};
