@@ -1,4 +1,5 @@
 #include "common\cfgFunctions.hpp"
 #include "debug\cfgFunctions.hpp"
+#include "groupsettings\cfgFunctions.hpp"
 #include "init\cfgFunctions.hpp"
 #include "setup\cfgFunctions.hpp"

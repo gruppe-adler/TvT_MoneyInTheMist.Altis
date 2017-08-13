@@ -30,6 +30,18 @@ disabledAI = 1;
 enableDebugConsole = 1;
 allowFunctionsRecompile = 1;
 
+//DIALOG =======================================================================
+class RscTitles {
+    #include "dialogs\preparationTime\rscTitles.hpp"
+
+    class mitm_Default {
+        idd = -1;
+        fadein = 0;
+        fadeout = 0;
+        duration = 0;
+    };
+};
+
 //MISSION ======================================================================
 class cfgMission {
     #include "cfgMission.hpp"

@@ -1,6 +1,6 @@
 #include "component.hpp"
 
-private _adminID = -1;
+private _adminID = 99999;
 if (hasInterface && isServer) then {
     _adminID = clientOwner;
 } else {

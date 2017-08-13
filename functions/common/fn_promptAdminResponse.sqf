@@ -2,15 +2,11 @@
 
 params ["_message","_timeout","_varName","_timeOutValue",["_global",false]];
 
-_adminID = [] call mitm_common_fnc_getAdminID;
-if (_adminID >= 0) then {
-    [_message] remoteExec ["mitm_common_fnc_adminPrompt",_adminID,false]
-} else {
-    _timeout = 0;
-};
+[_message,"MitM (Admin)"] remoteExec ["mitm_common_fnc_customChat",[] call mitm_common_fnc_getAdminID,false];
 
 missionNamespace setVariable [_varName,nil,true];
-[{
+private _onVarSet = {
     params ["_varName","_timeOutValue","_global"];
-    if (!isNil _varName) then {missionNamespace setVariable [_varName,_timeOutValue,_global]};
-}, [_varName,_timeOutValue,_global], _timeout] call CBA_fnc_waitAndExecute;
+    if (isNil _varName) then {missionNamespace setVariable [_varName,_timeOutValue,_global]};
+};
+[{!isNil (_this select 0)},_onVarSet,[_varName,_timeOutValue,_global],_timeout,_onVarSet] call CBA_fnc_waitUntilAndExecute;

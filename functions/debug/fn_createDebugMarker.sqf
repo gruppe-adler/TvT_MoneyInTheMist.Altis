@@ -1,7 +1,5 @@
 #include "component.hpp"
 
-if (!MITM_MISSIONPARAM_DEBUGMODE) exitWith {};
-
 params ["_categoryName","_name","_pos",["_text",""],["_shape","ICON"],["_type","hd_dot"],["_color","COLORBLACK"]];
 
 private _marker = createMarker [_name,_pos];

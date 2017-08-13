@@ -2,23 +2,40 @@
 
 if (!isServer) exitWith {};
 
-([] call mitm_setup_fnc_playArea) params ["_successful"];
+params [["_repetitions",0],["_startTime",diag_tickTime]];
+
+private _result = [] call mitm_setup_fnc_playArea;
+_result params [["_successful",false]];
 
 if (_successful) then {
-    ["Play zone setup successful. Confirm playzone with the chat command #mitm_accept or repeat the setup with #mitm_decline",15,"MITM_SETUP_PLAYZONECONFIRMATION",true,true] call mitm_common_fnc_promptAdminResponse;
+    [MITM_STARTPOSITION_COURIER,MITM_STARTPOSITION_WEST,MITM_STARTPOSITION_EAST,MITM_STARTPOSITION_INDEP,MITM_MISSIONPOSITIONS] remoteExec ["mitm_setup_fnc_adminPreview",[] call mitm_common_fnc_getAdminID,false];
+    ["Successful. Confirm playzone with chat command #mitm_accept or repeat setup with #mitm_decline",20,"MITM_SETUP_PLAYZONECONFIRMATION",true,true] call mitm_common_fnc_promptAdminResponse;
+
     [{!isNil "MITM_SETUP_PLAYZONECONFIRMATION"}, {
         if (!MITM_SETUP_PLAYZONECONFIRMATION) then {
-            [] call mitm_init_fnc_setup;
+            ["Repeating setup...","MitM (Admin)"] remoteExec ["mitm_common_fnc_customChat",[] call mitm_common_fnc_getAdminID,false];
+            [_repetitions,diag_tickTime] call mitm_init_fnc_setup;
+        } else {
+            ["Accepted. Starting game.","MitM (Admin)"] remoteExec ["mitm_common_fnc_customChat",[] call mitm_common_fnc_getAdminID,false]
         };
     }, []] call CBA_fnc_waitUntilAndExecute;
 } else {
-    ["Play zone setup failed. Try again with smaller size with the chat command #mitm_retry or end mission with #mitm_abort",15,"MITM_SETUP_PLAYZONERETRY",false,false] call mitm_common_fnc_promptAdminResponse;
-    [{!isNil "MITM_SETUP_PLAYZONERETRY"}, {
-        if (MITM_SETUP_PLAYZONERETRY) then {
-            MITM_MISSIONPARAM_SIZEFACTOR = MITM_MISSIONPARAM_SIZEFACTOR * 0.8;
-            [] call mitm_init_fnc_setup;
-        } else {
+    _time = diag_tickTime - _startTime;
+
+    if (_repetitions > 4 || _time > 60) then {
+        [_repetitions,_time] spawn {
+            params ["_repetitions","_time"];
+            [format ["Play zone setup failed after %1 repetitions and %2 seconds. Try again with smaller play area size. Mission ending.",_repetitions,_time]] remoteExec ["mitm_common_fnc_customChat",0,false];
+            sleep 4;
             "EveryoneLost" call BIS_fnc_endMissionServer;
         };
-    }, []] call CBA_fnc_waitUntilAndExecute;
+    } else {
+        [_repetitions,_startTime] spawn {
+            params ["_repetitions","_startTime"];
+            sleep 2;
+
+            MITM_MISSIONPARAM_SIZEFACTOR = MITM_MISSIONPARAM_SIZEFACTOR * 0.8;
+            [_repetitions + 1,_startTime] call mitm_init_fnc_setup;
+        };
+    };
 };
