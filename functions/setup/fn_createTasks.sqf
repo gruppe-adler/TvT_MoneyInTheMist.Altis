@@ -33,9 +33,11 @@ _missionPositions = +MITM_MISSIONPOSITIONS;
 _tasksArray = MITM_SETUP_TASKSNAMESPACE getVariable (str CIVILIAN);
 private _lastPosition = _missionPositions deleteAt (count _missionPositions -1);
 {
-    _taskParams = [_x] call mitm_setup_fnc_createTaskObjects;
-    _taskParams params ["_taskDescription"];
-
-    _task = [CIVILIAN,"mitm_deliver_" + (str _forEachIndex),[_taskDescription,"Delivery (side)",""],objNull,"AUTOASSIGNED",1,false,"default"] call BIS_fnc_taskCreate;
+    _taskParams = [_x] call mitm_courierTasks_fnc_createTaskObjects;
+    _taskParams params ["",["_taskObject",objNull],["_taskDescription","TASK CREATION FAILED. This should not happen. Contact the admin."]];
+    
+    _task = [CIVILIAN,"mitm_deliver_" + (str _forEachIndex),[_taskDescription,"Delivery (side)",""],_taskObject,"AUTOASSIGNED",1,false,"default"] call BIS_fnc_taskCreate;
     _tasksArray pushBack _task;
+
+    _taskObject setVariable ["mitm_courierTasks_task",_task];
 } forEach _missionPositions;

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=110;
+		nextID=141;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14659.832,33.47311,16707.127};
-		dir[]={0.76299989,-0.46375382,-0.45038974};
-		up[]={0.39939404,0.88594371,-0.23575731};
-		aside[]={-0.50835294,6.1187893e-007,-0.86119699};
+		pos[]={14693.524,178.19658,16636.83};
+		dir[]={-0.6128667,-0.37550277,-0.69537294};
+		up[]={-0.24832261,0.92679065,-0.28175187};
+		aside[]={-0.75026959,6.883638e-007,0.66124833};
 	};
 };
 binarizationWanted=0;
@@ -6860,6 +6860,7 @@ class Mission
 					flags=3;
 					class Attributes
 					{
+						name="mitm_courier";
 						description="The Courier";
 						isPlayable=1;
 					};

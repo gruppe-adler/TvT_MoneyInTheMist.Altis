@@ -3,8 +3,7 @@ class mitm_setup {
         class createBriefing {};
         class createPlayzoneMarkers {};
         class createPositions {};
-        class createStartVehicle {};
-        class createTaskObjects {};
+        class createStartVehicle {};        
         class createTasks {};
         class enforceStartTimer {};
         class findMissionLocation {};
