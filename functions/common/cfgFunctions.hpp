@@ -1,6 +1,8 @@
 class mitm_common {
     class common {
         class addToZeus {};
+        class clearMarkerCategory {};
+        class createCategoryMarker {};
         class customChat {};
         class emptyContainer {};
         class findMaxMoonDate {};

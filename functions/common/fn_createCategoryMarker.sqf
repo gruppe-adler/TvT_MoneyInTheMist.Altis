@@ -9,8 +9,8 @@ _marker setMarkerType _type;
 _marker setMarkerColor _color;
 
 
-if (isNil "MITM_DEBUGNAMESPACE") then {MITM_DEBUGNAMESPACE = [] call CBA_fnc_createNamespace};
-if (isNil {MITM_DEBUGNAMESPACE getVariable _categoryName}) then {MITM_DEBUGNAMESPACE setVariable [_categoryName,[]]};
+if (isNil "MITM_COMMON_MARKERNAMESPACE") then {MITM_COMMON_MARKERNAMESPACE = [] call CBA_fnc_createNamespace};
+if (isNil {MITM_COMMON_MARKERNAMESPACE getVariable _categoryName}) then {MITM_COMMON_MARKERNAMESPACE setVariable [_categoryName,[]]};
 
-private _category = MITM_DEBUGNAMESPACE getVariable _categoryName;
+private _category = MITM_COMMON_MARKERNAMESPACE getVariable _categoryName;
 _category pushBack _marker;

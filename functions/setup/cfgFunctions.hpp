@@ -1,8 +1,11 @@
 class mitm_setup {
     class setup {
-        class adminPreview {};
+        class createBriefing {};
+        class createPlayzoneMarkers {};
         class createPositions {};
         class createStartVehicle {};
+        class createTaskObjects {};
+        class createTasks {};
         class enforceStartTimer {};
         class findMissionLocation {};
         class findMissionRoadPosition {};

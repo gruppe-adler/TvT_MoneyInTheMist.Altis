@@ -13,6 +13,7 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,true]}, []] 
 [{!isNull player || isDedicated},{
 
     //setup
+    [] call mitm_setup_fnc_createBriefing;
     [] call mitm_init_fnc_moveToInitPos;
     [] call mitm_setup_fnc_setTime;
     [] call mitm_setup_fnc_setWeather;
@@ -36,6 +37,8 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,true]}, []] 
 
     //start game
     [{{!(missionNamespace getVariable [_x,false])} count ["MITM_SETUP_STARTVEHICLEDONE_WEST","MITM_SETUP_STARTVEHICLEDONE_EAST","MITM_SETUP_STARTVEHICLEDONE_INDEP","MITM_SETUP_STARTVEHICLEDONE_COURIER"] == 0},{
+        [] call mitm_setup_fnc_createTasks;
+
         [{[] call mitm_setup_fnc_startGameTimer},[],5] call CBA_fnc_waitAndExecute;
     },[]] call CBA_fnc_waitUntilAndExecute;
 
@@ -43,6 +46,7 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,true]}, []] 
     //exit JIP
     if (hasInterface && didJIP && missionNamespace getVariable ["MIMT_SETUP_GAMESTARTED", false] && {(playerSide in [EAST,WEST,INDEPENDENT,CIVILIAN])}) exitWith {player allowDamage true; player setDamage 1};
     if (hasInterface && didJIP) then {[player] remoteExec ["mitm_common_fnc_addToZeus",2,false]};
+
 
 
 }, []] call CBA_fnc_waitUntilAndExecute;

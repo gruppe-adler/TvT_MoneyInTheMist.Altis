@@ -1,5 +1,6 @@
 #define MODULES_DIRECTORY node_modules
 
+#include "cfgCivilians.hpp"
 #include "cfgIslands.hpp"
 #include "cfgParams.hpp"
 
@@ -72,7 +73,7 @@ class Loadouts {
     handleRadios = 1;
 
     class Faction {
-        #include "node_modules\grad-factions-tvt\loadouts.hpp"
+
     };
 };
 
