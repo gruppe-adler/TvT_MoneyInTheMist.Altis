@@ -27,6 +27,13 @@ class Params {
         default = 10;
     };
 
+    class Civilians {
+        title = "Ambient Civilians";
+        values[] = {0,1};
+        texts[] = {"Off","On"};
+        default = 1;
+    };
+
     class DebugMode {
         title = "Debug Mode";
         values[] = {0,1};

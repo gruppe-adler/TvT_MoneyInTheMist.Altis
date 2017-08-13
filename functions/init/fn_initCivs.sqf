@@ -1,7 +1,6 @@
 #include "component.hpp"
 
-private _enable = ([missionConfigFile >> "CfgGradCivs","enableCivs",0] call BIS_fnc_returnConfigEntry) == 1;
-if !(_enable) exitWith {};
+if !(MITM_MISSIONPARAM_CIVILIANS) exitWith {};
 
 private _islandType = ["type",""] call mitm_common_fnc_getIslandConfigEntry;
 
