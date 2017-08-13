@@ -11,6 +11,7 @@ private _headgear = [_civCfg,"headgear",[]] call BIS_fnc_returnConfigEntry;
 private _faces = [_civCfg,"faces",[]] call BIS_fnc_returnConfigEntry;
 private _goggles = [_civCfg,"goggles",[]] call BIS_fnc_returnConfigEntry;
 private _backpacks = [_civCfg,"backpacks",[]] call BIS_fnc_returnConfigEntry;
+private _vehicles = [_civCfg,"vehicles",[]] call BIS_fnc_returnConfigEntry;
 
 
 [_clothes] call grad_civs_fnc_setClothes;
@@ -18,5 +19,6 @@ private _backpacks = [_civCfg,"backpacks",[]] call BIS_fnc_returnConfigEntry;
 [_faces] call grad_civs_fnc_setFaces;
 [_goggles] call grad_civs_fnc_setGoggles;
 [_backpacks] call grad_civs_fnc_setBackpacks;
+[_vehicles] call grad_civs_fnc_setVehicles;
 
 [] call grad_civs_fnc_initModule;
