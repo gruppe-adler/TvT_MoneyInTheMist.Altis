@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14666.664,27.564325,16702.824};
+		pos[]={14659.832,33.47311,16707.127};
 		dir[]={0.76299989,-0.46375382,-0.45038974};
 		up[]={0.39939404,0.88594371,-0.23575731};
 		aside[]={-0.50835294,6.1187893e-007,-0.86119699};
@@ -2018,11 +2018,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1401.0474,-140.9201,1700.481};
+				position[]={1401.047,-140.92,1700.481};
 			};
 			id=23;
 			type="ACE_ModuleMap";
-			atlOffset=45.049896;
+			atlOffset=45.050003;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2097,7 +2097,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
