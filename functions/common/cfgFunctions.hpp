@@ -3,6 +3,7 @@ class mitm_common {
         class addToZeus {};
         class clearMarkerCategory {};
         class createCategoryMarker {};
+        class createTrigger {};            
         class customChat {};
         class doAnimation {};
         class emptyContainer {};
