@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3000.8013,-185.77,1573.0706};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={3214.3516,265.59015,1126.7371};
+		dir[]={-0.2382088,-0.53676784,0.80941176};
+		up[]={-0.15154397,0.84373045,0.51493251};
+		aside[]={0.95932472,-7.0314854e-008,0.28232747};
 	};
 };
 binarizationWanted=0;
@@ -1077,11 +1077,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1400.6094,-164.69614,2000.6201};
+				position[]={1400.609,-164.696,2000.62};
 			};
 			id=11;
 			type="ACE_ModuleInteraction";
-			atlOffset=21.273865;
+			atlOffset=21.274002;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1099,7 +1099,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -6940,6 +6940,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
+						name="mitm_courier_assistant_1";
 						description="The Couriers Accomplice";
 						isPlayable=1;
 					};

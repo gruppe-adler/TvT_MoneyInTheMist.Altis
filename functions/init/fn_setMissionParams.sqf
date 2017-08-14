@@ -6,4 +6,4 @@ MITM_MISSIONPARAM_SIZEFACTOR = ("AreaSize" call BIS_fnc_getParamValue) / 10;
 
 MITM_MISSIONPARAM_WEATHERSETTING = "WeatherSetting" call BIS_fnc_getParamValue;
 MITM_MISSIONPARAM_TIMEOFDAY = "TimeOfDay" call BIS_fnc_getParamValue;
-MITM_MISSIONPARAM_COURIERHEADSTART = "CourierHeadStart" call BIS_fnc_getParamValue;
+MITM_MISSIONPARAM_COURIERHEADSTART = if (MITM_MISSIONPARAM_DEBUGMODE) then {10} else {"CourierHeadStart" call BIS_fnc_getParamValue};

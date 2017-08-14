@@ -3,6 +3,7 @@
 params ["_pos"];
 
 if (!hasInterface) exitWith {};
+if ([player] call mitm_common_fnc_isCourier) exitWith {};
 
 private _lastRunTime = missionNamespace getVariable ["mitm_mission_trackerLastRuntime",0];
 if (CBA_missionTime - _lastRunTime < 10) exitWith {};

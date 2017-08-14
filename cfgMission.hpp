@@ -5,10 +5,10 @@ locationProbability = 70;                       // probability in percent that a
 teamStartDistances[] = {4000,4500};             // min and max distances to middle of courier tasks that teams will start in
 startTimerEnforceDistance = 100;                // distance that a player can move from his start position before the start countdown is over
 
-trackingInterval[] = {180,200};                 // interval in seconds in which the briefcase is marked on the map (min, max >> random value)
+trackingInterval[] = {180,240};                 // interval in seconds in which the briefcase is marked on the map (min, max >> random value)
 trackingIntervalFactorNoCourier = 0.5;          // factor for tracking interval while the courier is not in possession of the briefcase
 trackingIntervalFactorVehicle = 0.5;            // factor for tracking interval while briefcase is in a vehicle
-trackingAccuracy = 100;                         // accuracy of tracking marker in m
+trackingAccuracy = 250;                         // accuracy of tracking marker in m
 trackingAccuracyFactorNoCourier = 0.8;          // factor for accuracy while the courier is not in possession of the briefcase (lower means better accuracy)
 trackingAccuracyFactorVehicle = 0.8;            // factor for accuracy while the briefcase is in a vehicle
-trackingMarkerFadeout = 60;                     // time in s for markers to fade out
+trackingMarkerFadeout = 200;                    // time in s for markers to fade out
