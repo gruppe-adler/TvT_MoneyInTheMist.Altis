@@ -40,7 +40,7 @@ _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random 
 
     _markerPos = _briefcase getPos [random _currentAccuracy,random 360];
     diag_log [_currentAccuracy,_currentInterval,_markerPos,_briefcase];
-    /*[_markerPos] remoteExec ["mitm_briefcase_fnc_showTracker",[WEST,EAST,INDEPENDENT],false];*/
+    [_markerPos] remoteExec ["mitm_briefcase_fnc_showTracker",[WEST,EAST,INDEPENDENT],false];
 
     _centerMarker = createMarker [format ["mitm_briefcasemarker_center_%1",CBA_missionTime * 1000],_markerPos];
     _centerMarker setMarkerShape "ICON";
