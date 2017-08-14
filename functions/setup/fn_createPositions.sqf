@@ -98,10 +98,14 @@ private _startPos = [];
 } count [_courierDir,_courierDir+90,_courierDir+270];
 if (count _startPos == 0) exitWith {[false,"Could not find start position for a team."]};
 
+MITM_PLAYZONE_CENTER = _middleMissionPos;
+
 publicVariable "MITM_STARTPOSITION_COURIER";
 publicVariable "MITM_MISSIONPOSITIONS";
 publicVariable "MITM_STARTPOSITION_WEST";
 publicVariable "MITM_STARTPOSITION_EAST";
 publicVariable "MITM_STARTPOSITION_INDEP";
+publicVariable "MITM_PLAYZONE_CENTER";
+
 
 [true,"Play area setup successful"]

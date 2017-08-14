@@ -1,5 +1,6 @@
 class mitm_briefcase {
     class briefcase {
+        class activatePickupPoint {};
         class addBriefcaseEHs {};
         class addInteractions {};
         class attachBriefcase {};

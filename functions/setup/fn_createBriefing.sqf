@@ -3,6 +3,7 @@
 (["trackingInterval",[0,0]] call mitm_common_fnc_getMissionConfigEntry) params ["_intervalMin","_intervalMax"];
 private _averageInterval = round ((_intervalMin+_intervalMax)/2/60);
 
+
 private _theBriefcase = format ["
 The Briefcase contains a tracking device. Every %1 minutes a marker will appear on the map, visible to everyone.<br/>
 <br/>

@@ -2,14 +2,14 @@
 
 params ["_briefcase"];
 
-private _accuracy = [(missionConfigFile >> "cfgMission"), "trackingAccuracy",100] call BIS_fnc_returnConfigEntry;
-private _accuracyFactorNoCourier = [(missionConfigFile >> "cfgMission"), "trackingAccuracyFactorNoCourier",1] call BIS_fnc_returnConfigEntry;
-private _accuracyFactorVehicle = [(missionConfigFile >> "cfgMission"), "trackingAccuracyFactorVehicle",1] call BIS_fnc_returnConfigEntry;
-private _trackingMarkerFadeout = [(missionConfigFile >> "cfgMission"), "trackingMarkerFadeout",60] call BIS_fnc_returnConfigEntry;
-private _intervalFactorNoCourier = [(missionConfigFile >> "cfgMission"), "trackingIntervalFactorNoCourier",1] call BIS_fnc_returnConfigEntry;
-private _intervalFactorVehicle = [(missionConfigFile >> "cfgMission"), "trackingIntervalFactorVehicle",1] call BIS_fnc_returnConfigEntry;
+private _accuracy = ["trackingAccuracy",100] call mitm_common_fnc_getMissionConfigEntry;
+private _accuracyFactorNoCourier = ["trackingAccuracyFactorNoCourier",1] call mitm_common_fnc_getMissionConfigEntry;
+private _accuracyFactorVehicle = ["trackingAccuracyFactorVehicle",1] call mitm_common_fnc_getMissionConfigEntry;
+private _trackingMarkerFadeout = ["trackingMarkerFadeout",60] call mitm_common_fnc_getMissionConfigEntry;
+private _intervalFactorNoCourier = ["trackingIntervalFactorNoCourier",1] call mitm_common_fnc_getMissionConfigEntry;
+private _intervalFactorVehicle = ["trackingIntervalFactorVehicle",1] call mitm_common_fnc_getMissionConfigEntry;
 
-([(missionConfigFile >> "cfgMission"), "trackingInterval",[60,70]] call BIS_fnc_returnConfigEntry) params ["_intervalMin","_intervalMax"];
+(["trackingInterval",[60,70]] call mitm_common_fnc_getMissionConfigEntry) params ["_intervalMin","_intervalMax"];
 private _intervalRandom = _intervalMax - _intervalMin;
 _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random _intervalRandom)];
 
@@ -40,7 +40,7 @@ _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random 
 
     _markerPos = _briefcase getPos [random _currentAccuracy,random 360];
     diag_log [_currentAccuracy,_currentInterval,_markerPos,_briefcase];
-    [_markerPos] remoteExec ["mitm_briefcase_fnc_showTracker",[WEST,EAST,INDEPENDENT],false];
+    [_markerPos] remoteExec ["mitm_briefcase_fnc_showTracker",0,false];
 
     _centerMarker = createMarker [format ["mitm_briefcasemarker_center_%1",CBA_missionTime * 1000],_markerPos];
     _centerMarker setMarkerShape "ICON";
