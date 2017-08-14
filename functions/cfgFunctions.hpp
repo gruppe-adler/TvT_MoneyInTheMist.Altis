@@ -1,3 +1,4 @@
+#include "briefcase\cfgFunctions.hpp"
 #include "common\cfgFunctions.hpp"
 #include "courierTasks\cfgFunctions.hpp"
 #include "debug\cfgFunctions.hpp"

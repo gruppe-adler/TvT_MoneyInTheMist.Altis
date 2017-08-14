@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=141;
+		nextID=144;
 	};
 	class MarkerIDProvider
 	{
-		nextID=7;
+		nextID=9;
 	};
 	class Camera
 	{
-		pos[]={14693.524,178.19658,16636.83};
-		dir[]={-0.6128667,-0.37550277,-0.69537294};
-		up[]={-0.24832261,0.92679065,-0.28175187};
-		aside[]={-0.75026959,6.883638e-007,0.66124833};
+		pos[]={3000.8013,-185.77,1573.0706};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -265,7 +265,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=43;
+		items=44;
 		class Item0
 		{
 			dataType="Marker";
@@ -7013,6 +7013,15 @@ class Mission
 			{
 			};
 			id=98;
+			atlOffset=185.97;
+		};
+		class Item43
+		{
+			dataType="Marker";
+			position[]={2998.168,0,800.953};
+			name="respawn_civilian";
+			type="Empty";
+			id=143;
 			atlOffset=185.97;
 		};
 	};

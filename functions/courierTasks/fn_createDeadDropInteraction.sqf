@@ -2,8 +2,7 @@
 
 params ["_deadDropLogic"];
 
-/*[typeOf _deadDropLogic, 0] call ace_interact_menu_fnc_addMainAction;*/
-_action = ["mitm_courierTasks_deposit","Deposit Cache","",{
+private _action = ["mitm_courierTasks_deposit","Deposit Cache","",{
 
     params ["_deadDropLogic","_caller"];
 

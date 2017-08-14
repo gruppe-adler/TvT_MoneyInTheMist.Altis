@@ -13,9 +13,6 @@ private _interval = switch (_mode) do {
 [{
     params ["_mode","_handle"];
 
-    diag_log "checkEliminated";
-    diag_log _this;
-
     private _eliminationArray = [
         {side _x == WEST} count playableUnits == 0,
         {side _x == EAST} count playableUnits == 0,

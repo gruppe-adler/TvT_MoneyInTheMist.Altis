@@ -3,10 +3,11 @@ class mitm_common {
         class addToZeus {};
         class clearMarkerCategory {};
         class createCategoryMarker {};
-        class createTrigger {};            
+        class createTrigger {};
         class customChat {};
         class doAnimation {};
         class emptyContainer {};
+        class fadeMarker {};
         class findMaxMoonDate {};
         class findRandomPos {};
         class getAdminID {};

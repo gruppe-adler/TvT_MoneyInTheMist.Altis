@@ -29,7 +29,11 @@ if (hasInterface) then {
                 systemChat "mitm_missionStats has not been received. Not displaying scoreboard.";
             };
 
-            [{["end1", _this select 0, true, true, true] spawn BIS_fnc_endMission}, [_winningSide == playerSide], 5] call CBA_fnc_waitAndExecute;
+            if (MITM_MISSIONPARAM_DEBUGMODE) then {
+                systemChat "Debug mode is on. End mission manually.";
+            } else {
+                [{["end1", _this select 0, true, true, true] spawn BIS_fnc_endMission}, [_winningSide == playerSide], 5] call CBA_fnc_waitAndExecute;
+            };
         };
     };
 
