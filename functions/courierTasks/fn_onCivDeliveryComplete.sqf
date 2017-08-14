@@ -36,4 +36,4 @@ if (count _pos == 0) exitWith {
 [group _civ,_pos,100,"MOVE","UNCHANGED","NO CHANGE",_speedMode] call CBA_fnc_addWaypoint;
 [group _civ,_pos,100,"GETOUT","UNCHANGED","NO CHANGE",_speedMode] call CBA_fnc_addWaypoint;
 
-[] call mitm_courierTasks_fnc_checkSideTasksComplete;
+[] call mitm_courierTasks_fnc_checkCourierTasksComplete;

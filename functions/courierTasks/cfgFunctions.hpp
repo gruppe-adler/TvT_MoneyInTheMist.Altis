@@ -1,6 +1,6 @@
 class mitm_courierTasks {
     class courierTasks {
-        class checkSideTasksComplete {};
+        class checkCourierTasksComplete {};
         class civOnVisible {};
         class createCivInteraction {};
         class createDeadDrop {};

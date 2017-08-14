@@ -4,7 +4,8 @@ private _taskArray = MITM_SETUP_TASKSNAMESPACE getVariable (str CIVILIAN);
 
 private _mainComplete = {[_x] call BIS_fnc_taskState == "Succeeded"} count _taskArray == 7;
 if (_mainComplete) exitWith {
-    systemChat "ALL COMPLETE";
+    missionNamespace setVariable ["mitm_endInProgressServer",true];
+    missionNamespace setVariable ["mitm_gameEnded", [CIVILIAN, "BRIEFCASE DELIVERED!"], true];
 };
 
 private _sideComplete = {[_x] call BIS_fnc_taskState == "Succeeded"} count _taskArray == 4;

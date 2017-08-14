@@ -39,6 +39,8 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,true]}, []] 
     //start game
     [{{!(missionNamespace getVariable [_x,false])} count ["MITM_SETUP_STARTVEHICLEDONE_WEST","MITM_SETUP_STARTVEHICLEDONE_EAST","MITM_SETUP_STARTVEHICLEDONE_INDEP","MITM_SETUP_STARTVEHICLEDONE_COURIER"] == 0},{
         [] call mitm_setup_fnc_createTasks;
+        [] call mitm_endings_fnc_endMission;
+        [] call mitm_endings_fnc_checkEliminated;
 
         [{[] call mitm_setup_fnc_startGameTimer},[],5] call CBA_fnc_waitAndExecute;
     },[]] call CBA_fnc_waitUntilAndExecute;
