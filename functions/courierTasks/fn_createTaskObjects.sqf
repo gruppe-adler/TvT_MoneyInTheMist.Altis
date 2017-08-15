@@ -32,6 +32,7 @@ switch (_type) do {
         [_civ] remoteExec ["mitm_courierTasks_fnc_createCivInteraction",0,true];
         _trigger = [
             _civ,
+            [25,25,0,false],
             ["ANYPLAYER","PRESENT",true],
             {(missionNamespace getVariable ['mitm_courier',objNull]) in (_this select 1)},
             {
@@ -50,6 +51,7 @@ switch (_type) do {
         [_deadDropLogic] remoteExec ["mitm_courierTasks_fnc_createDeadDropInteraction",0,true];
         _trigger = [
             _deadDropLogic,
+            [25,25,0,false],
             ["ANYPLAYER","PRESENT",true],
             {(missionNamespace getVariable ['mitm_courier',objNull]) in (_this select 1)},
             {[(_this select 0) getVariable ["mitm_common_triggerAttachObject",objNull],"Dead Drop",10] remoteExec ["mitm_common_fnc_temp3dMarker",missionNamespace getVariable ["mitm_courier",objNull],false]}

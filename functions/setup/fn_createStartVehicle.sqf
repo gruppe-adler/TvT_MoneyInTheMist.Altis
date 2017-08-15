@@ -6,10 +6,10 @@ if (!isServer) exitWith {};
 
 
 private _sideVehicles = switch (_side) do {
-    case (WEST): {["rhsusf_m998_d_s_2dr_halftop","rhsusf_m998_w_s_2dr_halftop"]};
-    case (EAST): {["C_Van_01_transport_F","C_Van_01_transport_F"]};
-    case (INDEPENDENT): {["LOP_AM_Landrover","LOP_AM_Landrover"]};
-    case (CIVILIAN): {["RDS_Gaz24_Civ_02","RDS_Gaz24_Civ_01"]};
+    case (WEST): {[missionConfigFile >> "cfgFactions" >> MITM_MISSIONPARAM_FACTION_WEST,"startVehicles",[]] call BIS_fnc_returnConfigEntry};
+    case (EAST): {[missionConfigFile >> "cfgFactions" >> MITM_MISSIONPARAM_FACTION_EAST,"startVehicles",[]] call BIS_fnc_returnConfigEntry};
+    case (INDEPENDENT): {[missionConfigFile >> "cfgFactions" >> MITM_MISSIONPARAM_FACTION_GUER,"startVehicles",[]] call BIS_fnc_returnConfigEntry};
+    case (CIVILIAN): {[missionConfigFile >> "cfgFactions" >> MITM_MISSIONPARAM_FACTION_CIV,"startVehicles",[]] call BIS_fnc_returnConfigEntry};
 };
 private _sideVehicle = _sideVehicles select MITM_ISLANDPARAM_ISWOODLAND;
 

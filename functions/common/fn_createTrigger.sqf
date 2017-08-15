@@ -4,13 +4,13 @@
 *   Creates local trigger on server
 */
 
-params ["_triggerAttachObject",["_triggerActivation",["ANY","PRESENT",true]],["_triggerCondition",{true}],["_onTriggerActivate",{}],["_onTriggerDeactivate",{}],["_statementParams",[]]];
+params ["_triggerAttachObject",["_triggerArea",[20,20,0,false]],["_triggerActivation",["ANY","PRESENT",true]],["_triggerCondition",{true}],["_onTriggerActivate",{}],["_onTriggerDeactivate",{}],["_statementParams",[]]];
 
 private _pos = if (_triggerAttachObject isEqualType objNull) then {getPos _triggerAttachObject} else {_triggerAttachObject};
 
 private _trigger = createTrigger ["EmptyDetector",_pos,false];
 
-_trigger setTriggerArea [25,25,0,false];
+_trigger setTriggerArea _triggerArea;
 _trigger setTriggerActivation _triggerActivation;
 
 if (_triggerAttachObject isEqualType objNull) then {

@@ -40,6 +40,8 @@ _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random 
         _currentAccuracy = _currentAccuracy * _accuracyFactorVehicle;
     };
 
+    _currentInterval = _currentInterval max 20;
+
     _lastRun = _briefcase getVariable ["mitm_briefcase_lastMarkerTime",0];
     if (CBA_missionTime - _lastRun < _currentInterval) exitWith {};
     _briefcase setVariable ["mitm_briefcase_lastMarkerTime",CBA_missionTime];
