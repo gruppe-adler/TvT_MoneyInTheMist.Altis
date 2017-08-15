@@ -23,7 +23,7 @@ Get the Briefcase under your control. Force the Courier to join your side (his A
 We will give you an exfil location once you have the briefcase.
 ";
 {
-    _task = [_x,"mitm_seize_" + (str _x),[_taskDescription,"Seize Briefcase",""],objNull,"AUTOASSIGNED",3,true,"default"] call BIS_fnc_taskCreate;
+    _task = [_x,"mitm_seize_" + (str _x),[_taskDescription,"Seize Briefcase",""],objNull,"AUTOASSIGNED",3,false,"default"] call BIS_fnc_taskCreate;
 } forEach [WEST,EAST,INDEPENDENT];
 
 

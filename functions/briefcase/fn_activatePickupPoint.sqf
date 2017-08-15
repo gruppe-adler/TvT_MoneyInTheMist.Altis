@@ -1,8 +1,8 @@
 #include "component.hpp"
 
-params ["_side"];
+#define PREVENT(var1,var2) (format ["mitm_prevent_%1_%2",var1,var2])
 
-diag_log _this;
+params ["_side"];
 
 private _previousSide = missionNamespace getVariable ["mitm_briefcase_carryingSide",sideUnknown];
 if (_side == _previousSide) exitWith {};
@@ -11,93 +11,78 @@ missionNamespace setVariable ["mitm_briefcase_carryingSide",_side];
 private _otherSides = [WEST,EAST,INDEPENDENT,CIVILIAN] - [_side];
 
 
-//toggle other tasks
+// civ tasks ===================================================================
 private _civDeliverTasks = MITM_SETUP_TASKSNAMESPACE getVariable "courier_deliverTasks";
-switch (_side) do {
-    case (CIVILIAN): {
-        _reclaimTask = MITM_SETUP_TASKSNAMESPACE getVariable ["reclaim",""];
-        if (_reclaimTask != "") then {[_reclaimTask,"CANCELED",false] call BIS_fnc_taskSetState};
+private _civDeliverTaskStatus = ["CANCELED","AUTOASSIGNED"] select (_side == CIVILIAN);
+{
+    if ([_x] call BIS_fnc_taskState != "SUCCEEDED") then {
+        [_x,_civDeliverTaskStatus,false] call BIS_fnc_taskSetState;
+    };
+    false
+} count _civDeliverTasks;
 
-        {["mitm_seize_" + str _x,"ASSIGNED",true] call BIS_fnc_taskSetState; false} count _otherSides;
-        {
-            if ([_x] call BIS_fnc_taskState != "SUCCEEDED") then {
-                [_x,"AUTOASSIGNED",false] call BIS_fnc_taskSetState;
-            };
-            false
-        } count _civDeliverTasks;
-        {
-            _preventTask = MITM_SETUP_TASKSNAMESPACE getVariable ["prevent_" + str _x,""];
-            if (_preventTask != "") then {
-                [_preventTask,"CANCELED",false] call BIS_fnc_taskSetState;
-            };
-            false
-        } count _otherSides;
+private _reclaimTask = MITM_SETUP_TASKSNAMESPACE getVariable ["reclaim",""];
+if (_side == SIDEUNKNOWN) then {
+    if (_reclaimTask == "") then {
+        _task = [CIVILIAN,"mitm_reclaim_" + (str CIVILIAN),["You lost the briefcase. Get it back.","Pick up Briefcase",""],missionNamespace getVariable ["mitm_briefcase",objNull],"ASSIGNED",5,true,"default"] call BIS_fnc_taskCreate;
+        MITM_SETUP_TASKSNAMESPACE setVariable ["reclaim",_task];
+    } else {
+        [_reclaimTask,"ASSIGNED",false] call BIS_fnc_taskSetState;
     };
-    case WEST;
-    case EAST;
-    case (INDEPENDENT): {
-        ["mitm_seize_" + str _side,"SUCCEEDED",false] call BIS_fnc_taskSetState;
-        {["mitm_seize_" + str _x,"FAILED",false] call BIS_fnc_taskSetState; false} count _otherSides;
-        {
-            if ([_x] call BIS_fnc_taskState != "SUCCEEDED") then {
-                [_x,"CANCELED",false] call BIS_fnc_taskSetState;
-            };
-            false
-        } count _civDeliverTasks;
-    };
-    case (SIDEUNKNOWN): {
-        _reclaimTask = MITM_SETUP_TASKSNAMESPACE getVariable ["reclaim",""];
-        if (_reclaimTask != "") then {
-            _task = [CIVILIAN,"mitm_reclaim_" + (str CIVILIAN),["You lost the briefcase. Get it back.","Reclaim",""],objNull,"ASSIGNED",5,true,"default"] call BIS_fnc_taskCreate;
-            MITM_SETUP_TASKSNAMESPACE setVariable ["reclaim",_task];
-        };
-
-    };
+} else {
+    if (_reclaimTask != "") then {[_reclaimTask,"CANCELED",false] call BIS_fnc_taskSetState};
 };
 
 
-// handle tasks for other sides
-{
-    _pickupTask = MITM_SETUP_TASKSNAMESPACE getVariable ["pickup_" + str _x,""];
-    if (_pickupTask != "") then {
-        [_pickupTask,"CANCELED",false] call BIS_fnc_taskSetState;
-    };
-    false
-} count _otherSides;
+
+if (_side == SIDEUNKNOWN) exitWith {};
 
 
-if (_side == CIVILIAN) exitWith {};
-
-
+// prevent and exfil tasks =====================================================
 private _taskPos = switch (_side) do {
     case (WEST): {MITM_PICKUP_WEST};
     case (EAST): {MITM_PICKUP_EAST};
     case (INDEPENDENT): {MITM_PICKUP_INDEP};
+    default {objNull};
 };
-{
-    _preventTask = MITM_SETUP_TASKSNAMESPACE getVariable ["prevent_" + str _x,""];
-    if (_preventTask != "") then {
-        [_preventTask,"ASSIGNED",true] call BIS_fnc_taskSetState;
-        [_preventTask,_taskPos] call BIS_fnc_taskSetDestination;
+
+// update all seize tasks
+{["mitm_seize_" + str _x,["CANCELED","ASSIGNED"] select (_side == CIVILIAN),_side == CIVILIAN] call BIS_fnc_taskSetState; false} count _otherSides;
+["mitm_seize_" + str _side,"SUCCEEDED",true] call BIS_fnc_taskSetState;
+
+
+// cancel other exfil tasks
+{if (["mitm_exfil_" + str _x] call BIS_fnc_taskExists) then {["mitm_exfil_" + str _x,"CANCELED",false] call BIS_fnc_taskSetState}; false} count _otherSides;
+
+if (_side != CIVILIAN) then {
+
+    // create/assign new exfil task for carrier side
+    if (["mitm_exfil_" + str _side] call BIS_fnc_taskExists) then {
+        ["mitm_exfil_" + str _side,"ASSIGNED",true] call BIS_fnc_taskSetState;
     } else {
-        _task = [_x,"mitm_prevent_" + (str _x),["The enemy has the briefcase. Prevent their exfil.","Prevent exfil",""],_taskPos,"ASSIGNED",5,true,"default"] call BIS_fnc_taskCreate;
-        MITM_SETUP_TASKSNAMESPACE setVariable ["prevent_" + str _x,_task];
+        [_side,"mitm_exfil_" + str _side,["You have the briefcase. Move to the exfil position and defend it until your pick up arrives.","Exfil",""],_taskPos,"ASSIGNED",5,true,"default"] call BIS_fnc_taskCreate;
     };
+
+    // create/assign new prevention tasks for other sides
+    {
+        if ([PREVENT(str _x,str _side)] call BIS_fnc_taskExists) then {
+            [PREVENT(str _x,str _side),"ASSIGNED",true] call BIS_fnc_taskSetState;
+        } else {
+            [_x,PREVENT(str _x,str _side),["The enemy has the briefcase. Prevent their exfil.","Prevent exfil",""],_taskPos,"ASSIGNED",5,true,"default"] call BIS_fnc_taskCreate;
+        };
+        false
+    } count _otherSides;
+};
+
+// cancel all other prevent tasks
+{
+    private _taskOwner = _x;
+    {
+        _taskName = PREVENT(str _taskOwner,str _x);
+        if ([_taskName] call BIS_fnc_taskExists && {_x != _side}) then {
+            [_taskName,"CANCELED",false] call BIS_fnc_taskSetState;
+        };
+        false
+    } count [WEST,EAST,INDEPENDENT,CIVILIAN];
     false
-} count _otherSides;
-
-
-
-
-// handle tasks for owning side
-private _pickupTask = MITM_SETUP_TASKSNAMESPACE getVariable ["pickup_" + str _side,""];
-if (_pickupTask != "") then {
-    [_pickupTask,"ASSIGNED",true] call BIS_fnc_taskSetState;
-} else {
-    _task = [_side,"pickup_" + str _side,["You have the briefcase. Move to the exfil position and defend it until your pick up arrives.","Exfil",""],_taskPos,"ASSIGNED",5,true,"default"] call BIS_fnc_taskCreate;
-    MITM_SETUP_TASKSNAMESPACE setVariable ["pickup_" + str _side,_task];
-};
-private _preventTask = MITM_SETUP_TASKSNAMESPACE getVariable ["prevent_" + str _side,""];
-if (_preventTask != "") then {
-    [_preventTask,"CANCELED",false] call BIS_fnc_taskSetState;
-};
+} count [WEST,EAST,INDEPENDENT,CIVILIAN];

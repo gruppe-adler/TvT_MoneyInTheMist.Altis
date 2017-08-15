@@ -4,6 +4,9 @@ params ["_unit"];
 
 private _briefcase = mitm_briefcase;
 
+if (_unit != (_briefcase getVariable ["mitm_briefcase_owner",objNull])) exitWith {};
+
+
 detach _briefcase;
 [_unit,true] remoteExec ["allowSprint",_unit,false];
 
@@ -22,6 +25,7 @@ if !(isNull objectParent _unit) then {
 _briefcase setPos _pos;
 
 _unit setVariable ["mitm_briefcase_hasBriefcase",false,true];
-_briefcase setVariable ["mitm_briefcase_owner",objNull];
+_briefcase setVariable ["mitm_briefcase_owner",objNull,true];
+[SIDEUNKNOWN] call mitm_briefcase_fnc_activatePickupPoint;
 
 ["mitm_notification",["BRIEFCASE","You dropped the briefcase."]] remoteExec ["bis_fnc_showNotification",_unit,false];
