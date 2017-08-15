@@ -20,6 +20,9 @@ if (hasInterface) then {
             _text = format ["<img size= '6' style='vertical-align:middle' shadow='false' image='data\gruppe-adler.paa'/><br/><t size='.9' color='#FFFFFF'>%1<br/>%2</t>", _endText, _winningText];
             [_text,0,0,2,2] spawn BIS_fnc_dynamicText;
 
+            INFO(_endText);
+            INFO(_winningText);
+
             sleep 5;
 
             if (!isNil "mitm_missionStats") then {
@@ -30,6 +33,8 @@ if (hasInterface) then {
             };
 
             if (MITM_MISSIONPARAM_DEBUGMODE) then {
+                systemChat _endText;
+                systemChat _winningText;
                 systemChat "Debug mode is on. End mission manually.";
             } else {
                 [{["end1", _this select 0, true, true, true] spawn BIS_fnc_endMission}, [_winningSide == playerSide], 5] call CBA_fnc_waitAndExecute;

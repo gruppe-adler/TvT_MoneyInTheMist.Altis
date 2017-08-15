@@ -31,4 +31,4 @@ The *Courier* is doing his shady business delivering to other civilians or placi
 
 * has to complete 4 out of 6 side deliveries
 * can choose to join another side if threatened with violence (ACE-Interact with enemy he wants to join)
-* he can then defect from that side again and flee
+* he can then defect from that side again and flee (ACE-Selfinteraction)

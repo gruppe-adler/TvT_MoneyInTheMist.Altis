@@ -60,6 +60,7 @@ _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random 
     _areaMarker setMarkerSize [_currentAccuracy,_currentAccuracy];
     _areaMarker setMarkerBrush "Border";
 
+    _trackingMarkerFadeout = _trackingMarkerFadeout - (_intervalMin - _currentInterval);
     [[_centerMarker,_areaMarker],_trackingMarkerFadeout] call mitm_common_fnc_fadeMarker;
 
 } , 1, [_briefcase,_accuracy,_accuracyFactorNoCourier,_accuracyFactorVehicle,_accuracyFactorNoCarrier,_intervalMin,_intervalRandom,_intervalFactorNoCourier,_intervalFactorVehicle,_intervalFactorNoCarrier,_trackingMarkerFadeout]] call CBA_fnc_addPerFrameHandler;

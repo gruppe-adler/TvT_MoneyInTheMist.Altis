@@ -3,7 +3,7 @@
 MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfigEntry;
 
 [] call mitm_init_fnc_disablePlayableUnits;
-if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,true]}, []] call CBA_fnc_waitUntilAndExecute};
+if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []] call CBA_fnc_waitUntilAndExecute};
 
 [] call mitm_init_fnc_setMissionParams;
 [] call mitm_init_fnc_registerChatCommands;
@@ -25,7 +25,7 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,true]}, []] 
     //vehicles and teleport
     [{missionNamespace getVariable ["MITM_SETUP_PLAYZONECONFIRMATION",false] && {isNil _x} count ["MITM_STARTPOSITION_WEST","MITM_STARTPOSITION_EAST","MITM_STARTPOSITION_INDEP","MITM_STARTPOSITION_COURIER"] == 0},{
 
-        [] call mitm_setup_fnc_createPickupPoints;
+        [] call mitm_setup_fnc_createExfilPoints;
 
         [WEST,MITM_STARTPOSITION_WEST,"MITM_SETUP_STARTVEHICLEDONE_WEST"] call mitm_setup_fnc_createStartVehicle;
         [EAST,MITM_STARTPOSITION_EAST,"MITM_SETUP_STARTVEHICLEDONE_EAST"] call mitm_setup_fnc_createStartVehicle;

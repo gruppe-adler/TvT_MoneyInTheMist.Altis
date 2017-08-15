@@ -2,7 +2,7 @@ class mitm_setup {
     class setup {
         class createBriefcase {};
         class createBriefing {};
-        class createPickupPoints {};
+        class createExfilPoints {};
         class createPlayzoneMarkers {};
         class createPositions {};
         class createStartVehicle {};

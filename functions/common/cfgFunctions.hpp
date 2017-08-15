@@ -17,6 +17,7 @@ class mitm_common {
         class getMissionConfigEntry {};
         class getRoadDir {};
         class getSideColor {};
+        class getSideName {};
         class getVectorAngle {};
         class isCourier {};
         class promptAdminResponse {};
