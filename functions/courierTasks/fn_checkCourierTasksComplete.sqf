@@ -1,6 +1,6 @@
 #include "component.hpp"
 
-private _tasksArray = MITM_SETUP_TASKSNAMESPACE getVariable (str CIVILIAN);
+private _tasksArray = MITM_SETUP_TASKSNAMESPACE getVariable ["courier_deliverTasks",[]];
 
 private _mainComplete = {[_x] call BIS_fnc_taskState == "Succeeded"} count _tasksArray == 7;
 if (_mainComplete) exitWith {

@@ -28,4 +28,6 @@ _unit setVariable ["mitm_briefcase_hasBriefcase",false,true];
 _briefcase setVariable ["mitm_briefcase_owner",objNull,true];
 [SIDEUNKNOWN] call mitm_briefcase_fnc_activatePickupPoint;
 
-["mitm_notification",["BRIEFCASE","You dropped the briefcase."]] remoteExec ["bis_fnc_showNotification",_unit,false];
+if (side _unit != CIVILIAN) then {
+    ["mitm_notification",["BRIEFCASE","You dropped the briefcase."]] remoteExec ["bis_fnc_showNotification",_unit,false];    
+};

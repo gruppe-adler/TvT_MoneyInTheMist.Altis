@@ -2,6 +2,8 @@
 
 params ["_civ","_partner"];
 
+if (!alive _civ) exitWith {};
+
 if (_civ getVariable ["mitm_courierTasks_civOnVisible_running",false]) exitWith {};
 _civ setVariable ["mitm_courierTasks_civOnVisible_running",true,true];
 

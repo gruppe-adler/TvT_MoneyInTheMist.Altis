@@ -2,9 +2,9 @@
 
 params ["_civ"];
 
-[_civ getVariable ["mitm_courierTasks_task",""],"SUCCEEDED",true] spawn BIS_fnc_taskSetState;
-_civ setVariable ["mitm_courierTasks_taskComplete",true,true];
+[_civ getVariable ["mitm_courierTasks_task",""],"SUCCEEDED",true] call BIS_fnc_taskSetState;
 deleteVehicle (_civ getVariable ["mitm_courierTasks_trigger",objNull]);
+[] call mitm_courierTasks_fnc_checkCourierTasksComplete;
 
 [group _civ] call CBA_fnc_clearWaypoints;
 
@@ -35,5 +35,3 @@ if (count _pos == 0) exitWith {
 
 [group _civ,_pos,100,"MOVE","UNCHANGED","NO CHANGE",_speedMode] call CBA_fnc_addWaypoint;
 [group _civ,_pos,100,"GETOUT","UNCHANGED","NO CHANGE",_speedMode] call CBA_fnc_addWaypoint;
-
-[] call mitm_courierTasks_fnc_checkCourierTasksComplete;

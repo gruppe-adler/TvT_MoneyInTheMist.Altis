@@ -5,9 +5,11 @@ params ["_briefcase"];
 private _accuracy = ["trackingAccuracy",100] call mitm_common_fnc_getMissionConfigEntry;
 private _accuracyFactorNoCourier = ["trackingAccuracyFactorNoCourier",1] call mitm_common_fnc_getMissionConfigEntry;
 private _accuracyFactorVehicle = ["trackingAccuracyFactorVehicle",1] call mitm_common_fnc_getMissionConfigEntry;
+private _accuracyFactorNoCarrier = ["trackingAccuracyFactorNoCarrier",1] call mitm_common_fnc_getMissionConfigEntry;
 private _trackingMarkerFadeout = ["trackingMarkerFadeout",60] call mitm_common_fnc_getMissionConfigEntry;
 private _intervalFactorNoCourier = ["trackingIntervalFactorNoCourier",1] call mitm_common_fnc_getMissionConfigEntry;
 private _intervalFactorVehicle = ["trackingIntervalFactorVehicle",1] call mitm_common_fnc_getMissionConfigEntry;
+private _intervalFactorNoCarrier = ["trackingIntervalFactorNoCarrier",1] call mitm_common_fnc_getMissionConfigEntry;
 
 (["trackingInterval",[60,70]] call mitm_common_fnc_getMissionConfigEntry) params ["_intervalMin","_intervalMax"];
 private _intervalRandom = _intervalMax - _intervalMin;
@@ -15,7 +17,7 @@ _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random 
 
 [{
     params ["_args","_handle"];
-    _args params ["_briefcase","_accuracy","_accuracyFactorNoCourier","_accuracyFactorVehicle","_trackingMarkerFadeout","_intervalMin","_intervalRandom","_intervalFactorNoCourier","_intervalFactorVehicle"];
+    _args params ["_briefcase","_accuracy","_accuracyFactorNoCourier","_accuracyFactorVehicle","_accuracyFactorNoCarrier","_intervalMin","_intervalRandom","_intervalFactorNoCourier","_intervalFactorVehicle","_intervalFactorNoCarrier","_trackingMarkerFadeout"];
 
     if (isNull _briefcase) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
@@ -24,8 +26,13 @@ _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random 
 
     _owner = _briefcase getVariable ["mitm_briefcase_owner",objNull];
     if !([_owner] call mitm_common_fnc_isCourier) then {
-        _currentInterval = _currentInterval * _intervalFactorNoCourier;
-        _currentAccuracy = _currentAccuracy * _accuracyFactorNoCourier;
+        if (isNull _owner) then {
+            _currentInterval = _currentInterval * _intervalFactorNoCarrier;
+            _currentAccuracy = _currentAccuracy * _accuracyFactorNoCarrier;
+        } else {
+            _currentInterval = _currentInterval * _intervalFactorNoCourier;
+            _currentAccuracy = _currentAccuracy * _accuracyFactorNoCourier;
+        };
     };
 
     if (!isNull objectParent _owner) then {
@@ -55,6 +62,6 @@ _briefcase setVariable ["mitm_briefcase_currentInterval",_intervalMin + (random 
 
     [[_centerMarker,_areaMarker],_trackingMarkerFadeout] call mitm_common_fnc_fadeMarker;
 
-} , 1, [_briefcase,_accuracy,_accuracyFactorNoCourier,_accuracyFactorVehicle,_trackingMarkerFadeout,_intervalMin,_intervalRandom,_intervalFactorNoCourier,_intervalFactorVehicle]] call CBA_fnc_addPerFrameHandler;
+} , 1, [_briefcase,_accuracy,_accuracyFactorNoCourier,_accuracyFactorVehicle,_accuracyFactorNoCarrier,_intervalMin,_intervalRandom,_intervalFactorNoCourier,_intervalFactorVehicle,_intervalFactorNoCarrier,_trackingMarkerFadeout]] call CBA_fnc_addPerFrameHandler;
 
 _briefcase setVariable ["mitm_briefcaseMarker_running",true];

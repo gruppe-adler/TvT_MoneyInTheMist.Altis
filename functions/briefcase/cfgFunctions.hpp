@@ -9,6 +9,7 @@ class mitm_briefcase {
         class onGetIn {};
         class onGetOut {};
         class onKilled {};
+        class onUnconscious {};
         class onWeaponChanged {};
         class showTracker {};
         class trackBriefcase {};

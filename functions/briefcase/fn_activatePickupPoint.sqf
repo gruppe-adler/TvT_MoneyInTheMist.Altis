@@ -30,7 +30,7 @@ if (_side == SIDEUNKNOWN) then {
         [_reclaimTask,"ASSIGNED",false] call BIS_fnc_taskSetState;
     };
 } else {
-    if (_reclaimTask != "") then {[_reclaimTask,"CANCELED",false] call BIS_fnc_taskSetState};
+    if (_reclaimTask != "") then {[_reclaimTask,["CANCELED","SUCCEEDED"] select (_side == CIVILIAN),false] call BIS_fnc_taskSetState};
 };
 
 

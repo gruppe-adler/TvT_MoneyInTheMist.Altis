@@ -1,5 +1,6 @@
 class mitm_courierTasks {
     class courierTasks {
+        class canInteractWithTaskObject {};
         class checkCourierTasksComplete {};
         class civOnVisible {};
         class createCivInteraction {};

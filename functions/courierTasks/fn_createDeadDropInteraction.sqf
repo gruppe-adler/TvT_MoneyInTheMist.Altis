@@ -24,6 +24,6 @@ private _action = ["mitm_courierTasks_deposit","Deposit Cache","",{
 
     [20, [_deadDropLogic,_caller], _onComplete, _onCancel, "Hiding Cache..."] call ace_common_fnc_progressBar;
 
-},{[_this select 1] call mitm_common_fnc_isCourier && {!((_this select 0) getVariable ["mitm_courierTasks_taskComplete",false])}},{},[],[0,0,0],4,[false,false,false,false,true]] call ace_interact_menu_fnc_createAction;
+},mitm_courierTasks_fnc_canInteractWithTaskObject,{},[],[0,0,0],4,[false,false,false,false,true]] call ace_interact_menu_fnc_createAction;
 
 [_deadDropLogic,0,[],_action] call ace_interact_menu_fnc_addActionToObject;
