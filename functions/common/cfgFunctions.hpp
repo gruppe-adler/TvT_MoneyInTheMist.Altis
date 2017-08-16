@@ -20,6 +20,7 @@ class mitm_common {
         class getSideName {};
         class getVectorAngle {};
         class isCourier {};
+        class projectile {};
         class promptAdminResponse {};
         class stopAnimation {};
         class suppress {};

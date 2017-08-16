@@ -19,6 +19,6 @@ trackingAccuracyFactorNoCarrier = 0.2;          // factor for accuracy while no 
 trackingMarkerFadeout = 200;                    // time in s for markers to fade out
 
 
-exfilAreaRadius = 80;                           // radius for the exfil area
+exfilAreaRadius = 120;                          // radius for the exfil area
 exfilDefenseTime = 540;                         // time in s that the team with the briefcase has to defend their exfil point
 exfilStopDefenseTime = 40;                      // time in s that the exfil area has to be out of control or the briefcase has left the area for the defense timer to reset
