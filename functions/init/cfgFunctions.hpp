@@ -3,10 +3,11 @@ class mitm_init {
         class createAdminChat {preInit = 1;};
         class disablePlayableUnits {};
         class initCivs {};
+        class initLoadouts {};
         class initMission {postInit = 1;};
         class moveToInitPos {};
         class registerChatCommands {};
-        class setLoadoutFactions {};
+        class setLoadoutRandomization {};
         class setMissionParams {};
         class setup {};
     };

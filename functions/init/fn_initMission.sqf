@@ -9,7 +9,7 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []]
 [] call mitm_init_fnc_registerChatCommands;
 [] call mitm_groupsettings_fnc_setGroupSettings;
 [] call mitm_init_fnc_initCivs;
-/*[] call  mitm_init_fnc_setLoadoutFactions;*/
+[] call  mitm_init_fnc_initLoadouts;
 
 [{!isNull player || isDedicated},{
 

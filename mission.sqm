@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=144;
+		nextID=145;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3214.3516,265.59015,1126.7371};
-		dir[]={-0.2382088,-0.53676784,0.80941176};
-		up[]={-0.15154397,0.84373045,0.51493251};
-		aside[]={0.95932472,-7.0314854e-008,0.28232747};
+		pos[]={1614.4208,8.7124195,2531.2722};
+		dir[]={0.067221068,-0.49787605,0.86464006};
+		up[]={0.038590766,0.8672477,0.49637878};
+		aside[]={0.99699122,-1.2019882e-008,-0.0775107};
 	};
 };
 binarizationWanted=0;
@@ -4126,18 +4126,19 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1617.8757,1.2365158,2595.2539};
+						position[]={1617.876,1.2364395,2595.2542};
 					};
 					side="East";
 					flags=3;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						description="Squad Leader@Alpha";
 						isPlayable=1;
 					};
 					id=57;
 					type="O_Soldier_SL_F";
-					atlOffset=187.20508;
+					atlOffset=187.205;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4363,7 +4364,7 @@ class Mission
 			{
 			};
 			id=56;
-			atlOffset=187.20508;
+			atlOffset=187.205;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6937,15 +6938,14 @@ class Mission
 						position[]={1615.3101,0.0014388561,2540.8511};
 					};
 					side="Civilian";
-					flags=1;
 					class Attributes
 					{
 						name="mitm_courier_assistant_1";
 						description="The Couriers Accomplice";
 						isPlayable=1;
 					};
-					id=101;
-					type="C_man_p_shorts_1_F";
+					id=144;
+					type="C_man_p_fugitive_F";
 					atlOffset=185.97;
 					class CustomAttributes
 					{
@@ -7518,7 +7518,7 @@ class Mission
 			class Item48
 			{
 				linkID=48;
-				item0=101;
+				item0=144;
 				item1=94;
 				class CustomData
 				{
