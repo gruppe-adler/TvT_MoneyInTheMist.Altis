@@ -20,5 +20,23 @@ class cfgFactions {
     class courier {
         loadouts[] = {"courier","courier"};
         startVehicles[] = {"RDS_Gaz24_Civ_02","RDS_Gaz24_Civ_01"};
+        startVehicleContents[] = {
+            {
+                "B_AssaultPack_cbr",1
+            },
+            {
+                "rhs_vest_pistol_holster",1,
+                "ACE_SpraypaintGreen",1,
+                "ToolKit",1
+            },
+            {
+                "rhs_mag_9x18_8_57N181S",3,
+                "rhs_mag_f1",1
+            },
+            {
+                "rhs_weap_makarov_pm",1,
+                "Binocular",1
+            }
+        };
     };
 };

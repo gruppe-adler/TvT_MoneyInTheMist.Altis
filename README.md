@@ -24,6 +24,16 @@ The marker will appear more often and be more accurate when:
 * the *Briefcase* or its carrier is in a vehicle
 * no one is carrying the *Briefcase*
 
+Notes about interacting with the *Briefcase*:
+
+* while on the ground, it can be picked up with ACE-Interaction
+* the carrier can not sprint
+* if the carrier is killed, loses consciousness, surrenders or takes out a weapon, he will drop the *Briefcase*
+* the *Briefcase* can not be loaded into vehicles by itself, but the carrier can mount a vehicle without dropping it
+* if the carrier is killed or loses consciousness while inside a vehicle, the *Briefcase* will fall out of the vehicle
+* the carrier can give the *Briefcase* to another player by ACE-Interacting with that player
+* the carrier can drop the *Briefcase* with ACE-Selfinteraction
+
 
 ## The Courier
 
@@ -32,3 +42,5 @@ The *Courier* is doing his shady business delivering to other civilians or placi
 * has to complete 4 out of 6 side deliveries
 * can choose to join another side if threatened with violence (ACE-Interact with enemy he wants to join)
 * he can then defect from that side again and flee (ACE-Selfinteraction)
+* looks just like every other civilian on the map
+* starts with a vehicle that has some equipment inside

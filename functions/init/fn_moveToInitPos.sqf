@@ -7,6 +7,15 @@ private _posIndep = ["spawnPosIndep",_posBlu] call mitm_common_fnc_getIslandConf
 {
     if (local _x) then {
         _x allowDamage false;
+
+        if (!isPlayer _x) then {
+            _x disableAI "AUTOTARGET";
+            _x disableAI "AUTOCOMBAT";
+            _x disableAI "PATH";
+            _x disableAI "COVER";
+            _x disableAI "FSM";
+        };
+
         _searchPos = switch (side _x) do {
             case (WEST): {_posBlu};
             case (EAST): {_posOpf};

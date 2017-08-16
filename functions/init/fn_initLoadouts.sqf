@@ -27,9 +27,6 @@ private _islandType = ["type",""] call mitm_common_fnc_getIslandConfigEntry;
 
     _itemName = [missionConfigFile >> "Loadouts" >> "Faction" >> "courier" >> "Type" >> "man_p_fugitive_F",_slotName,""] call BIS_fnc_returnConfigEntry;
     _randomReplacements = [missionConfigFile >> "cfgCivilians" >> _islandType,_civConfigTypeName,[""]] call BIS_fnc_returnConfigEntry;
-
-    diag_log [_slotName,_civConfigTypeName,_itemName,_randomReplacements];
-
     _replaceFunction = compile format ["
         params [['_value','']];
         if (_value == '%1') then {

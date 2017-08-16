@@ -22,6 +22,7 @@ class mitm_common {
         class isCourier {};
         class promptAdminResponse {};
         class stopAnimation {};
+        class suppress {};
         class taskPatrol {};
         class teleport {};
         class temp3dMarker {};

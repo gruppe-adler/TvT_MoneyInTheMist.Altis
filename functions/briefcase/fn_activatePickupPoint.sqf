@@ -66,7 +66,6 @@ private _taskPos = switch (_side) do {
         };
         if (_curSide != _x && {_x != CIVILIAN}) then {
             _assign = (_curSide != _side && {_x == _side});
-            diag_log [_taskName,_sideUnits,_assign];
             [_taskName,_sideUnits,[localize "str_mitm_task_prevent",localize "str_mitm_task_prvent_title",""],_taskPos,["CANCELED","ASSIGNED"] select _assign,3,_assign,true,"default"] call BIS_fnc_setTask;
         };
         false

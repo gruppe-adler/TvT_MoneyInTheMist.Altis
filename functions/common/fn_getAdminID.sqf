@@ -1,5 +1,9 @@
 #include "component.hpp"
 
+/*
+*   Only works on server!
+*/
+
 private _adminID = 99999;
 if (hasInterface && isServer) then {
     _adminID = clientOwner;

@@ -5,11 +5,11 @@
 
     {
         if (local _x && {side _x == _side}) then {
-            _maxDist = 10;
+            _maxDist = 15;
             _pos = [];
             _x enableSimulation true;
             while {count _pos == 0} do {
-                _pos = [_searchPos,[0,_maxDist]] call mitm_common_fnc_findRandomPos;
+                _pos = [_searchPos,[5,_maxDist]] call mitm_common_fnc_findRandomPos;
                 _maxDist = _maxDist + 5;
             };
             _onTP = if (_side != CIVILIAN && {_x == player}) then {
