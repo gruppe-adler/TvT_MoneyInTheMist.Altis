@@ -14,8 +14,8 @@ for [{private _i=0}, {_i<50}, {_i=_i+1}] do {
     _searchPos = _center getPos [_searchDist, _searchAngle];
 
     if (_findRoadPos) then {
-        _nearRoads = _searchPos nearRoads 50;
-        _searchPos = if (count _nearRoads > 0) then {getPos (_nearRoads select 0)} else {[]};
+        _nearestRoad = [_searchPos,50,[]] call BIS_fnc_nearestRoad;
+        _searchPos = if (!isNull _nearestRoad) then {getPos _nearestRoad} else {[]};
     };
 
     _pos = if (_vehicleType != "" && {count _searchPos > 0}) then {_searchPos findEmptyPosition [0,10,_vehicleType]} else {_searchPos};

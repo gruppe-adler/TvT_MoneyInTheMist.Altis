@@ -6862,7 +6862,7 @@ class Mission
 					class Attributes
 					{
 						name="mitm_courier";
-						description="The Courier";
+						description="The Courier@Courier";
 						isPlayable=1;
 					};
 					id=99;
@@ -6941,7 +6941,7 @@ class Mission
 					class Attributes
 					{
 						name="mitm_courier_assistant_1";
-						description="The Couriers Accomplice";
+						description="The Couriers Accomplice@Courier";
 						isPlayable=1;
 					};
 					id=144;

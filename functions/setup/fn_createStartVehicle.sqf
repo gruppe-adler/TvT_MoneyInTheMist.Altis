@@ -13,18 +13,36 @@ private _sideVehicles = switch (_side) do {
 };
 private _sideVehicle = _sideVehicles select MITM_ISLANDPARAM_ISWOODLAND;
 
-
 private _vehicleAmount = ceil ((_side countSide playableUnits)/4);
+INFO_2("Start vehicles for side %1: %2",_side,_vehicleAmount);
+
+private _usedRoads = [];
+private _dir = 0;
+
 for [{_i=0}, {_i<_vehicleAmount}, {_i=_i+1}] do {
-    private _maxDist = 10;
+
     private _spawnPos = [];
+
+    private _road = roadAt _searchPos;
+    if (!isNull _road) then {
+        for [{_j=0}, {_j<10}, {_j=_j+1}] do {
+            _spawnPos = [_searchPos,[0,5],[0,360],_sideVehicle] call mitm_common_fnc_findRandomPos;
+            if (count _spawnPos > 0 && {isOnRoad _spawnPos}) exitWith {};
+        };
+        _dir = if (count _usedRoads > 0) then {_dir} else {[_road] call mitm_common_fnc_getRoadDir};
+        _usedRoads pushBack _road;
+    };
+
+    private _maxDist = 10;
     while {count _spawnPos == 0} do {
-        _spawnPos = [_searchPos,[0,_maxDist],[0,360],_sideVehicle] call mitm_common_fnc_findRandomPos;
-        /*_spawnPos = _searchPos findEmptyPosition [0,_maxDist,_sideVehicle];*/
+        _spawnPos = _searchPos findEmptyPosition [0,_maxDist,_sideVehicle];
         _maxDist = _maxDist + 5;
     };
 
+    _searchPos = _searchPos getPos [12,_dir];
+
     private _veh = createVehicle [_sideVehicle,_spawnPos,[],0,"NONE"];
+    _veh setDir _dir;
     [_veh] call mitm_common_fnc_emptyContainer;
 
 
@@ -41,7 +59,7 @@ for [{_i=0}, {_i<_vehicleAmount}, {_i=_i+1}] do {
         for [{_j=0}, {_j<(count _x -1)}, {_j=_j+2}] do {
             _type = _x select _j;
             _amount = _x select (_j+1);
-            
+
             switch (_forEachIndex) do {
                 case (0): {_veh addBackpackCargoGlobal [_type,_amount]};
                 case (1): {_veh addItemCargoGlobal [_type,_amount]};
