@@ -9,7 +9,7 @@ _result params [["_successful",false]];
 
 if (_successful) then {
     [MITM_STARTPOSITION_COURIER,MITM_STARTPOSITION_WEST,MITM_STARTPOSITION_EAST,MITM_STARTPOSITION_INDEP,MITM_MISSIONPOSITIONS] call mitm_setup_fnc_createPlayzoneMarkers;
-    ["Successful. Confirm playzone with chat command #mitm_accept or repeat setup with #mitm_decline",20,"MITM_SETUP_PLAYZONECONFIRMATION",true,true] call mitm_common_fnc_promptAdminResponse;
+    [format ["Successful (%1). Confirm playzone with chat command #mitm_accept or repeat setup with #mitm_decline",_repetitions],20,"MITM_SETUP_PLAYZONECONFIRMATION",true,true] call mitm_common_fnc_promptAdminResponse;
 
     [{!isNil "MITM_SETUP_PLAYZONECONFIRMATION"}, {
         if (!MITM_SETUP_PLAYZONECONFIRMATION) then {
@@ -22,7 +22,7 @@ if (_successful) then {
 } else {
     _time = diag_tickTime - _startTime;
 
-    if (_repetitions > 4 || _time > 60) then {
+    if (_repetitions > 6 || _time > 60) then {
         [_repetitions,_time] spawn {
             params ["_repetitions","_time"];
             [format ["Play zone setup failed after %1 repetitions and %2 seconds. Try again with smaller play area size. Mission ending.",_repetitions,_time]] remoteExec ["mitm_common_fnc_customChat",0,false];
@@ -34,7 +34,7 @@ if (_successful) then {
             params ["_repetitions","_startTime"];
             sleep 2;
 
-            MITM_MISSIONPARAM_SIZEFACTOR = MITM_MISSIONPARAM_SIZEFACTOR * 0.8;
+            MITM_MISSIONPARAM_SIZEFACTOR = MITM_MISSIONPARAM_SIZEFACTOR * 0.7;
             [_repetitions + 1,_startTime] call mitm_init_fnc_setup;
         };
     };
