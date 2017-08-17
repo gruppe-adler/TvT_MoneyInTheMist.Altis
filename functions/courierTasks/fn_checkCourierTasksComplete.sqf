@@ -6,6 +6,9 @@ private _mainComplete = {[_x] call BIS_fnc_taskState == "Succeeded"} count _task
 if (_mainComplete) exitWith {
     missionNamespace setVariable ["mitm_endInProgressServer",true];
     missionNamespace setVariable ["mitm_gameEnded", [CIVILIAN, "BRIEFCASE DELIVERED!"], true];
+
+    [CIVILIAN,15,"Main Delivery"] call mitm_points_fnc_addPoints;
+    [CIVILIAN] call mitm_endings_fnc_saveScore;
 };
 
 private _sideComplete = {[_x] call BIS_fnc_taskState == "Succeeded"} count _tasksArray == 4;

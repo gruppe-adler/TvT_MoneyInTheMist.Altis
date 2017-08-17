@@ -5,6 +5,7 @@
 #include "cfgFactions.hpp"
 
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
+#include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
 
 //HEADER =======================================================================
 class Header
@@ -56,6 +57,8 @@ class CfgFunctions {
     #include "node_modules\grad-fortifications\cfgFunctions.hpp"
     #include "node_modules\grad-civs\cfgFunctions.hpp"
     #include "node_modules\grad-gpsTracker\cfgFunctions.hpp"
+    #include "node_modules\grad-winrateTracker\cfgFunctions.hpp"
+    #include "node_modules\grad-scoreboard\cfgFunctions.hpp"
 };
 
 //SOUNDS =======================================================================
@@ -111,6 +114,16 @@ class CfgGradFortifications {
     class Fortifications {
 
     };
+};
+
+//WINRATE TRACKER ==============================================================
+class CfgWinrateTracker {
+    scoreBoardDuration = 16;                            //duration that the scoreboard will stay open
+    sortBy = "WINRATES";                                //what to sort by, can be "GAMES","WINS","LOSSES","WINRATES"
+    minGamesForSort = 5;                                //minimum number of games a player needs to have to be in the upper ranks
+    playerStatsHeadline = "PLAYER WINRATES";            //headline for scoreboard
+    teamStatsHeadline = "TEAM WINRATES";                //headline for team stats
+    missionName = "TvT_MoneyInTheMist";                       //missionName that these stats are to be saved under (if not provided, actual mission name of current mission is used)
 };
 
 //NOTIFICATIONS ================================================================

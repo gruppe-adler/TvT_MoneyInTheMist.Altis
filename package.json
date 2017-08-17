@@ -12,6 +12,7 @@
         "grad-listbuymenu": ">=0.0.3",
         "grad-loadout": "4.x",
         "grad-scoreboard": ">=0.0.1",
+        "grad-winratetracker": ">=0.0.1",
         "grad-gpstracker": ">=0.0.1",
         "grad-civs": ">=0.0.1"
     }

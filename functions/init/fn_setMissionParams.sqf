@@ -1,6 +1,7 @@
 #include "component.hpp"
 
 MITM_MISSIONPARAM_DEBUGMODE = ("DebugMode" call BIS_fnc_getParamValue) == 1;
+MITM_MISSIONPARAM_RANKEDMODE = if (MITM_MISSIONPARAM_DEBUGMODE) then {false} else {("RankedMode" call BIS_fnc_getParamValue) == 1};
 MITM_MISSIONPARAM_CIVILIANS = ("Civilians" call BIS_fnc_getParamValue) == 1;
 MITM_MISSIONPARAM_SIZEFACTOR = ("AreaSize" call BIS_fnc_getParamValue) / 10;
 

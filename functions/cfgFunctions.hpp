@@ -4,5 +4,6 @@
 #include "debug\cfgFunctions.hpp"
 #include "endings\cfgFunctions.hpp"
 #include "groupsettings\cfgFunctions.hpp"
+#include "points\cfgFunctions.hpp"
 #include "init\cfgFunctions.hpp"
 #include "setup\cfgFunctions.hpp"

@@ -52,5 +52,7 @@ _trigger setVariable ["mitm_briefcase_heli",_heli];
         sleep 2;
         missionNamespace setVariable ["mitm_endInProgressServer",true];
         missionNamespace setVariable ["mitm_gameEnded", [_ownerSide, "BRIEFCASE SECURED"], true];
+
+        [_ownerSide] call mitm_endings_fnc_saveScore;
     };
 },[_heli,_trigger,_ownerSide]] call CBA_fnc_waitUntilAndExecute;

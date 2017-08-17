@@ -35,8 +35,10 @@ private _interval = switch (_mode) do {
 
                 _winner = sideUnknown;
                 {
-                    if (!_x) then {_winner = [WEST,EAST,INDEPENDENT,CIVILIAN] select _forEachIndex};
+                    if (!_x) exitWith {_winner = [WEST,EAST,INDEPENDENT,CIVILIAN] select _forEachIndex};
                 } forEach _eliminationArray;
+
+                [_winner] call mitm_endings_fnc_saveScore;
 
                 missionNamespace setVariable ["mitm_endInProgressServer",true];
                 missionNamespace setVariable ["mitm_gameEnded", [_winner, "OPPONENTS ELIMINATED!"], true];

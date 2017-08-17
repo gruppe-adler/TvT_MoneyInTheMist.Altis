@@ -34,6 +34,14 @@ class Params {
         default = 1;
     };
 
+    class RankedMode
+    {
+        title = "Track Winrates";
+        values[] = {0,1};
+        texts[] = {"Off","On"};
+        default = 1;
+    };
+
     class DebugMode {
         title = "Debug Mode";
         values[] = {0,1};

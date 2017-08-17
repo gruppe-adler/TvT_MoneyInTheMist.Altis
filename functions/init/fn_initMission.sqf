@@ -58,6 +58,16 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []]
         [mitm_briefcase] call mitm_briefcase_fnc_trackBriefcase;
         [] call mitm_endings_fnc_checkEliminated;
         [] call mitm_endings_fnc_endMission;
+
+        if (isServer) then {
+            mitm_bluforPlayers = [west] call grad_winrateTracker_fnc_getPlayerNamesOfSide;
+            mitm_opforPlayers = [east] call grad_winrateTracker_fnc_getPlayerNamesOfSide;
+            mitm_indepPlayers = [independent] call grad_winrateTracker_fnc_getPlayerNamesOfSide;
+
+            _civPlayers = (([] call BIS_fnc_listPlayers) - entities "HeadlessClient_F") select {side _x == CIVILIAN};
+            mitm_civPlayers = _civPlayers apply {name _x};
+            mitm_civPlayerUIDs = _civPlayers apply {getPlayerUID _x};
+        };
     },[]] call CBA_fnc_waitUntilAndExecute;
 
     //exit JIP

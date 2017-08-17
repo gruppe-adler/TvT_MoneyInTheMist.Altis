@@ -40,7 +40,7 @@ private _action = ["mitm_courierTasks_deliver","MODIFIED TEXT","",{
         hint "canceled handing over";
     };
 
-    [6, [_civ,_caller], _onComplete, _onCancel, "Handing over..."] call ace_common_fnc_progressBar;
+    [6, [_civ,_caller], _onComplete, _onCancel, "Doing business..."] call ace_common_fnc_progressBar;
 
 },mitm_courierTasks_fnc_canInteractWithTaskObject,{},[],[0,0,0],4,[false,false,false,false,true],_modifier] call ace_interact_menu_fnc_createAction;
 
