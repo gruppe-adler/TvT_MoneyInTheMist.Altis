@@ -69,6 +69,7 @@ rm "$tmpdir/build.sh"
 rm "$tmpdir/cpbo.exe"
 rm "$tmpdir/README.md"
 rm -fr "$tmpdir/.git"
+rm -fr "$tmpdir/promo"
 rm "$tmpdir/.gitattributes"
 rm "$tmpdir/.gitignore"
 
