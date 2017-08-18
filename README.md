@@ -44,3 +44,23 @@ The *Courier* is doing his shady business delivering to other civilians or placi
 * he can then defect from that side again and flee (ACE-Selfinteraction)
 * looks just like every other civilian on the map
 * starts with a vehicle that has some equipment inside
+
+![The Courier](/promo/courier.png?raw=true)
+
+## Special Forces
+
+The Special Forces were sent by the local government to intercept the *Courier* and secure the *Briefcase* as part of an investigation against drug trafficking. Their order is to not unnecessarily harm the *Courier*, but hey, he might just accidentally catch a stray bullet.
+
+![Alt text](/promo/specialforces.png?raw=true)
+
+## Mafia
+
+The Russian Mafia in this country doesn't play around. Cheap drugs are ruining their business and they are going to put an end to it.
+
+![Alt text](/promo/mafia.png?raw=true)
+
+## Rebels
+
+The Rebels plan on using the *Briefcase's* contents to finance their next arms deal. This rebellion is won with guns and ammo and the Rebels are running low on both.
+
+![Alt text](/promo/rebels.png?raw=true)
