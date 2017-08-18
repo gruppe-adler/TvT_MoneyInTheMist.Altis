@@ -14,6 +14,8 @@ private _posIndep = ["spawnPosIndep",_posBlu] call mitm_common_fnc_getIslandConf
             _x disableAI "PATH";
             _x disableAI "COVER";
             _x disableAI "FSM";
+            _x setCombatMode "BLUE";
+            _x setVariable ["asr_ai_exclude",true];
         };
 
         _searchPos = switch (side _x) do {
