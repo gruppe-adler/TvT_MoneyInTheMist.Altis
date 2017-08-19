@@ -1,11 +1,11 @@
 <company side="civilian" callsign="Courier">
     <slot shortcode="COU" description="Courier"></slot>
-    <slot shortcode="COA" description="Courier's Assistan" reserved-for="30+"></slot>
+    <slot shortcode="COA" description="Courier's Assistant" reserved-for="30+"></slot>
 </company>
 <company side="blufor" callsign="Special Forces">
     <squad>
         <slot shortcode="SQL" description="Squad Leader"></slot>
-        <slot shortcode="SQL" description="Ass. Squad Leader"></slot>
+        <slot shortcode="SQA" description="Ass. Squad Leader"></slot>
         <slot shortcode="SQM" description="Squad Medic"></slot>
         <fireteam>
             <slot shortcode="FTL" description="Team Leader"></slot>
@@ -30,7 +30,7 @@
 <company side="opfor" callsign="Mafia">
     <squad>
         <slot shortcode="SQL" description="Squad Leader"></slot>
-        <slot shortcode="SQL" description="Ass. Squad Leader"></slot>
+        <slot shortcode="SQA" description="Ass. Squad Leader"></slot>
         <slot shortcode="SQM" description="Squad Medic"></slot>
         <fireteam>
             <slot shortcode="FTL" description="Team Leader"></slot>
@@ -55,7 +55,7 @@
 <company side="independent" callsign="Rebels">
     <squad>
         <slot shortcode="SQL" description="Squad Leader"></slot>
-        <slot shortcode="SQL" description="Ass. Squad Leader"></slot>
+        <slot shortcode="SQA" description="Ass. Squad Leader"></slot>
         <slot shortcode="SQM" description="Squad Medic"></slot>
         <fireteam>
             <slot shortcode="FTL" description="Team Leader"></slot>
