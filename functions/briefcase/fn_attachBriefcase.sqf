@@ -22,5 +22,5 @@ _briefcase setVariable ["mitm_briefcase_owner",_unit,true];
 
 [side _unit] call mitm_briefcase_fnc_activatePickupPoint;
 if (currentWeapon _unit != "") then {
-    [_unit,["SwitchWeapon", player, player, 99]] remoteExec ["action",_unit,false];
+    [_unit,["SwitchWeapon",_unit,_unit,99]] remoteExec ["action",_unit,false];
 };
