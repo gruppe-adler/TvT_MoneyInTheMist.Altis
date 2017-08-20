@@ -59,9 +59,9 @@ private _taskPos = switch (_side) do {
     {
         _taskName = PREVENT(str _curSide,str _x);
         _prevTaskPos = switch (_x) do {
-            case (WEST): {MITM_EXFIL_WEST};
-            case (EAST): {MITM_EXFIL_EAST};
-            case (INDEPENDENT): {MITM_EXFIL_GUER};
+            case (WEST): {getPos MITM_EXFIL_WEST};
+            case (EAST): {getPos MITM_EXFIL_EAST};
+            case (INDEPENDENT): {getPos MITM_EXFIL_GUER};
             default {objNull};
         };
         if (_curSide != _x && {_x != CIVILIAN}) then {

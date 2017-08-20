@@ -35,7 +35,9 @@ private _exfilPoints = [];
         {[_this select 0,false] call mitm_briefcase_fnc_onExfilTriggerToggle}
     ] call mitm_common_fnc_createTrigger;
     _trigger setVariable ["mitm_setup_exfilPointOwner",[WEST,EAST,INDEPENDENT] select _forEachIndex];
-    missionNamespace setVariable [_x,_trigger,true];
+    missionNamespace setVariable [_x,_trigger,false];
+
+    diag_log [_pos,_trigger,getPos _trigger,_x,call compile _x];
 
     if (MITM_MISSIONPARAM_DEBUGMODE) then {
         ["pickup_debug",str _pos,_pos,_x + " (DEBUG)","ICON","hd_end","COLORUNKNOWN"] call mitm_common_fnc_createCategoryMarker;
