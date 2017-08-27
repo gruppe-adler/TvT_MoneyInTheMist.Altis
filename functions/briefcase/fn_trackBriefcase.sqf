@@ -1,5 +1,7 @@
 #include "component.hpp"
 
+if (!isServer) exitWith {};
+
 params ["_briefcase"];
 
 private _accuracy = ["trackingAccuracy",100] call mitm_common_fnc_getMissionConfigEntry;

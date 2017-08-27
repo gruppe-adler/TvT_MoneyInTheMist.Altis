@@ -1729,11 +1729,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1199.2932,-154.23257,1799.521};
+				position[]={1199.293,-154.233,1799.521};
 			};
 			id=19;
 			type="ACE_moduleReviveSettings";
-			atlOffset=31.737427;
+			atlOffset=31.737;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2382,12 +2382,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1199.2927,-163.59827,1898.7815};
+				position[]={1199.293,-163.59801,1898.781};
 			};
 			presenceCondition="";
 			id=27;
 			type="ACE_moduleMedicalSettings";
-			atlOffset=22.371735;
+			atlOffset=22.371994;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2443,7 +2443,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -2462,7 +2462,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1;
+							value=1.6;
 						};
 					};
 				};
@@ -2576,7 +2576,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1;
+							value=1.6;
 						};
 					};
 				};
