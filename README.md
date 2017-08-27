@@ -1,4 +1,5 @@
-# Money in the Mist
+![](https://i.imgur.com/byqaoGL.png)
+
 Money in the Mist is a dynamic 4-party-tvt mission for all maps.  
 A *Courier* is moving through the area, making deliveries. He is carrying a *Briefcase*, that all three other parties want to secure for themselves.
 
