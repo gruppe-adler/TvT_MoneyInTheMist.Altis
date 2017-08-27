@@ -2,6 +2,7 @@
 Money in the Mist is a dynamic 4-party-tvt mission for all maps.  
 A *Courier* is moving through the area, making deliveries. He is carrying a *Briefcase*, that all three other parties want to secure for themselves.
 
+**Table of Contents**
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Game Flow](#game-flow)
@@ -95,3 +96,7 @@ The *Courier* gets points for:
 ## Play Zone
 
 The play zone is completely randomly generated every game. The mission admin can decline the playzone, if it is unfair for one side (e.g. if a side starts on an island) with the chat command `#mitm_decline`. There are random civilians walking and driving around the playzone. Civilian vehicles can be stopped and highjacked. There are also random empty vehicles parked in towns and sparsely outside of towns. These are locked, but can be broken into with the lock pick kit that every player starts with. The *Courier* is better at lock picking than his adversaries.
+
+**Example Play Zone**
+
+![](https://i.imgur.com/bGciOnd.jpg)
