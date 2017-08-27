@@ -34,7 +34,8 @@ class special_forces_w {
 			LIST_3("ACE_CableTie"),
 			"ACE_epinephrine",
 			"ACE_Flashlight_MX991",
-			"ACE_MapTools"
+			"ACE_MapTools",
+			"ACE_key_lockpick"
         };
         addItemsToVest[] = {};
         addItemsToBackpack[] = {};

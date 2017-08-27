@@ -17,6 +17,9 @@ if (_successful) then {
             [_repetitions,diag_tickTime] call mitm_init_fnc_setup;
         } else {
             ["Accepted. Starting game.","MitM (Admin)"] remoteExec ["mitm_common_fnc_customChat",[] call mitm_common_fnc_getAdminID,false];
+            [MITM_PLAYZONE_CENTER] call mitm_civs_fnc_cars;
+            [MITM_PLAYZONE_CENTER] call mitm_civs_fnc_boats;
+            [] remoteExec ["mitm_civs_fnc_setLockPickStrength",CIVILIAN,true];
         };
     }, []] call CBA_fnc_waitUntilAndExecute;
 } else {

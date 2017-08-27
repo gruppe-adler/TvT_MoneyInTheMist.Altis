@@ -22,3 +22,23 @@ trackingMarkerFadeout = 200;                    // time in s for markers to fade
 exfilAreaRadius = 120;                          // radius for the exfil area
 exfilDefenseTime = 540;                         // time in s that the team with the briefcase has to defend their exfil point
 exfilStopDefenseTime = 40;                      // time in s that the exfil area has to be out of control or the briefcase has left the area for the defense timer to reset
+
+
+class civVehicles {
+    randomFuel[] = {0.05,0.35};
+
+    carLocationAmountFactor = 0.3;
+    carLocationMinDist = 30;
+
+    carRoadAmountFactor = 0.03;
+    carRoadMinDist = 300;
+
+    boatCoastAmountFactor = 1;
+    boatTypes[] = {
+        "C_Boat_Civil_01_F",
+        "C_Boat_Civil_01_rescue_F",
+        "C_Boat_Transport_02_F",
+        "C_Scooter_Transport_01_F",
+        "C_Rubberboat"
+    };
+};

@@ -34,7 +34,8 @@ class rebels {
 			LIST_3("ACE_CableTie"),
 			"ACE_epinephrine",
 			"ACE_Flashlight_KSF1",
-			"ACE_MapTools"
+			"ACE_MapTools",
+			"ACE_key_lockpick"
         };
         addItemsToVest[] = {};
         addItemsToBackpack[] = {};

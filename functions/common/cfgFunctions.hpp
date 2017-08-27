@@ -8,6 +8,7 @@ class mitm_common {
         class doAnimation {};
         class emptyContainer {};
         class fadeMarker {};
+        class findBuildings {};
         class findMaxMoonDate {};
         class findRandomPos {};
         class getAdminID {};
@@ -20,6 +21,7 @@ class mitm_common {
         class getSideName {};
         class getVectorAngle {};
         class isCourier {};
+        class nearestCoast {};
         class projectile {};
         class promptAdminResponse {};
         class stopAnimation {};
