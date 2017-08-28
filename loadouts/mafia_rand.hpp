@@ -11,12 +11,6 @@ class mafia {
                 "rds_uniform_citizen4"
             };
         };
-        class rds_uniform_Functionary1 {
-            randomization[] = {
-                "rds_uniform_Functionary1",
-                "rds_uniform_Functionary2"
-            };
-        };
     };
 
     class backpack {

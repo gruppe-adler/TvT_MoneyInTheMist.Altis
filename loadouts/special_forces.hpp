@@ -85,7 +85,7 @@ class special_forces_w {
 
         //Rifleman (AT)
         class soldier_LAT_F: Soldier_F {
-            secondaryWeapon = "rhs_weap_M136";
+            secondaryWeapon = "rhs_weap_m72a7";
         };
 
         //Squad Leader
