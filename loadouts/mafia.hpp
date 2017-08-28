@@ -67,7 +67,7 @@ class mafia {
         class soldier_AR_F: Soldier_F {
             primaryWeapon = "rhs_weap_pkp";
             primaryWeaponMagazine = "rhs_100Rnd_762x54mmR";
-            addItemsToVest[] = {
+            addItemsToBackpack[] = {
                 LIST_3("rhs_100Rnd_762x54mmR")
             };
         };

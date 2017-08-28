@@ -67,7 +67,7 @@ class rebels {
 			goggles = "G_Balaclava_blk";
             primaryWeapon = "rhs_weap_pkm";
             primaryWeaponMagazine = "rhs_100Rnd_762x54mmR";
-            addItemsToVest[] = {
+            addItemsToBackpack[] = {
                 LIST_2("rhs_100Rnd_762x54mmR")
             };
         };
