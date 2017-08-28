@@ -9,4 +9,6 @@ missionNamespace setVariable ["mitm_briefcase",_briefcase,true];
     [{[mitm_courier] call mitm_briefcase_fnc_attachBriefcase},[],3] call CBA_fnc_waitAndExecute;
 },[]] call CBA_fnc_waitUntilAndExecute;
 
+[_briefcase] call mitm_common_fnc_addToZeus;
+
 _briefcase
