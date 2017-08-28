@@ -2,7 +2,7 @@
 
 params ["_pos"];
 
-if (!hasInterface) exitWith {};
+if (!hasInterface || {missionNamespace getVariable ["mitm_isSpectating", false]}) exitWith {};
 private _briefcase = missionNamespace getVariable ["mitm_briefcase",objNull];
 
 if (side player == side (_briefcase getVariable ["mitm_briefcase_owner",objNull])) exitWith {};
