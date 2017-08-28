@@ -1,5 +1,9 @@
 #include "component.hpp"
 
+if (isServer) then {
+    addMissionEventHandler ["HandleDisconnect",mitm_briefcase_fnc_onDisconnect];
+};
+
 if (!hasInterface) exitWith {};
 
 {
@@ -7,7 +11,7 @@ if (!hasInterface) exitWith {};
         _x addEventhandler ["GetInMan",mitm_briefcase_fnc_onGetIn];
         _x addEventhandler ["GetOutMan",mitm_briefcase_fnc_onGetOut];
         _x addEventhandler ["Killed",mitm_briefcase_fnc_onKilled];
-        _x addEventhandler ["AnimChanged",mitm_briefcase_fnc_onAnimChanged];        
+        _x addEventhandler ["AnimChanged",mitm_briefcase_fnc_onAnimChanged];
     };
 } forEach allUnits;
 

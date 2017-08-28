@@ -6,6 +6,7 @@ class mitm_briefcase {
         class attachBriefcase {};
         class dropBriefcase {};
         class onAnimChanged {};
+        class onDisconnect {};
         class onExfilDefended {};
         class onExfilTriggerToggle {};
         class onGetIn {};
