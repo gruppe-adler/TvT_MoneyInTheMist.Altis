@@ -12,8 +12,11 @@ if (!isNull _prevOwner) then {
     [_prevOwner,true] remoteExec ["allowSprint",_unit,false];
 };
 
-private _offset = if (_vehicleMode) then {[0,0,-100]} else {[-0.03,-0.06,-0.19]};
-_briefcase attachTo [_unit,_offset,"RightHand"];
+if (_vehicleMode) then {
+    _briefcase attachTo [vehicle _unit,[0,0,-100]];
+} else {
+    _briefcase attachTo [_unit,[-0.03,-0.06,-0.19],"RightHand"];
+};
 _briefcase setVectorDirAndUp [[1,0,0],[0,0,1]];
 
 [_unit,false] remoteExec ["allowSprint",_unit,false];
