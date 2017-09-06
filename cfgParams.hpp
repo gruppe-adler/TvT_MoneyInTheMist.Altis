@@ -17,7 +17,7 @@ class Params {
         title = "Courier Head Start Time (Minutes)";
         values[] = {60,120,180,240,300,360,420,480,540,600};
         texts[] = {"1","2","3","4","5","6","7","8","9","10"};
-        default = 180;
+        default = 120;
     };
 
     class AreaSize {
