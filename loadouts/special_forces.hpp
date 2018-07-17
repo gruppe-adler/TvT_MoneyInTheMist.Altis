@@ -35,7 +35,8 @@ class special_forces_w {
 			"ACE_epinephrine",
 			"ACE_Flashlight_MX991",
 			"ACE_MapTools",
-			"ACE_key_lockpick"
+			"ACE_key_lockpick",
+            "ACE_key_west"
         };
         addItemsToVest[] = {};
         addItemsToBackpack[] = {};
