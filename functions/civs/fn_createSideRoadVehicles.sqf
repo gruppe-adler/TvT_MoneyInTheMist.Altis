@@ -25,7 +25,8 @@ private _fnc_nearbyVehiclePositions = {
 
 private _fnc_isSafe = {
     params ["_pos"];
-    !(([_pos, 0, 0, 2, 0, 0.6, 0,"",[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos) isEqualTo [0,0,0])
+    // getPos, 0, 0, 2, 0, 0.7, 0, [], [getPos player, getPos player]
+    !(([_pos, 0, 0, 2, 0, 0.6, 0, "",[[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos) isEqualTo [0,0,0])
 };
 
 
@@ -43,7 +44,7 @@ while {count _roads > 0 && count _thesePositions < _vehiclesToCreate} do {
     private ["_vehPos","_canCreate","_chosenDirection","_offRoadFound"];
 
     _randomRoadID = round (random ((count _roads)-1));
-    _road = _roads deleteAt _randomRoadID;
+    private _road = _roads deleteAt _randomRoadID;
 
     if (!isNull _road) then {
         if (count (roadsConnectedTo _road) == 0) exitWith {};
@@ -61,7 +62,7 @@ while {count _roads > 0 && count _thesePositions < _vehiclesToCreate} do {
                 if (!isOnRoad _testPos) exitWith {_offRoadFound = true};
             };
 
-            _enoughHouses = if (_houseFactor < 0) then {true} else {(count ([_vehPos,20] call mitm_common_fnc_findBuildings)) * _houseFactor > random 100};
+            private _enoughHouses = if (_houseFactor < 0) then {true} else {(count ([_vehPos,20] call mitm_common_fnc_findBuildings)) * _houseFactor > random 100};
 
             _canCreate = switch (true) do {
                 case (!_offRoadFound): {"ONROAD"};

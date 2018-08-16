@@ -26,9 +26,22 @@ switch (_type) do {
 
 
     case ("CIV"): {
-        _civ = [_pos] call mitm_courierTasks_fnc_spawnCiv;
-        _veh = [_pos] call mitm_courierTasks_fnc_spawnCivStaticVehicle;
+        private _civ = [_pos] call mitm_courierTasks_fnc_spawnCiv;
+        private _veh = [_pos] call mitm_courierTasks_fnc_spawnCivStaticVehicle;
         _civ setVariable ["mitm_courierTasks_civOwnedVehicle",_veh];
+
+
+        // add killed EH to penalize courier if he kills civ to interact faster
+        _civ addEventHandler ["Killed", {
+                params ["_unit", "_killer", "_instigator", "_useEffects"];
+
+                _unit setVariable ["mitm_civKiller", _killer, true];
+                if (side _killer isEqualTo civilian && isPlayer _killer) then {
+                    diag_log "fucking hell stop killing your friendlies";
+                };
+        }];
+
+
         [_civ] remoteExec ["mitm_courierTasks_fnc_createCivInteraction",0,true];
         _trigger = [
             _civ,

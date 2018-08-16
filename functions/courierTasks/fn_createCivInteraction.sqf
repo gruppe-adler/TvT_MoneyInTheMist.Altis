@@ -17,7 +17,15 @@ private _action = ["mitm_courierTasks_deliver","MODIFIED TEXT","",{
 
     params ["_civ","_caller"];
 
+    // interaction time is zero currently
+    
+
     if (!alive _civ) exitWith {
+        private _killer = _civ getVariable ["mitm_civKiller", objNull];
+        if (isPlayer _killer && side _caller isEqualTo civilian) then {
+            diag_log format ["killing your own and dealing with the body, you bastard"];
+        };
+
         [_civ] remoteExec ["mitm_courierTasks_fnc_onCivDeliveryComplete",2,false];
         hint selectRandom [
             "Better him than me.",

@@ -6,6 +6,9 @@ private _briefcase = mitm_briefcase;
 private _action = ["mitm_briefcase_pickup","Pick up","",{
 
     params ["_briefcase","_caller"];
+
+    // hint format ["pick %1", _caller];
+
     [_caller] remoteExec ["mitm_briefcase_fnc_attachBriefcase",2,false];
 
 },{isNull ((_this select 0) getVariable ["mitm_briefcase_owner",objNull])},{},[],[0,0,0],2] call ace_interact_menu_fnc_createAction;
@@ -15,6 +18,8 @@ private _action = ["mitm_briefcase_pickup","Pick up","",{
 
 _action = ["mitm_briefcase_drop","Drop Briefcase","",{
     params ["_caller"];
+
+    // hint format ["drop %1", _caller];
 
     [_caller] remoteExec ["mitm_briefcase_fnc_dropBriefcase",2,false];
 
