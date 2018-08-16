@@ -12,7 +12,10 @@
     if (player distance2D _startPos > _maxDist) then {
         player setVariable ["mitm_setup_enforceStartTimer_status",false];
         if (_previousStatus) then {
-            ["mitm_notification",["CHEATER?",format ["%1 left the start area early!",profileName]]] remoteExec ["bis_fnc_showNotification",0,false];
+            // handle disconnects
+            if (!(position player isEqualTo [0,0,0])) then {
+                ["mitm_notification",["CHEATER?",format ["%1 left the start area early!",profileName]]] remoteExec ["bis_fnc_showNotification",0,false];
+            };
         };
     } else {
         player setVariable ["mitm_setup_enforceStartTimer_status",true];
