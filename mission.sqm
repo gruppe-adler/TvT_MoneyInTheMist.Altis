@@ -48,8 +48,6 @@ addons[]=
 	"A3_Modules_F_Heli_Misc",
 	"ace_advanced_fatigue",
 	"A3_Characters_F",
-	"asr_ai3_cfgcamouflage",
-	"asr_ai3_cfgvehicles",
 	"po_factions_me",
 	"ace_nouniformrestrictions"
 };

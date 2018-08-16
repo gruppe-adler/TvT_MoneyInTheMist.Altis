@@ -35,7 +35,8 @@ class mafia {
 			"ACE_epinephrine",
 			"ACE_Flashlight_KSF1",
 			"ACE_MapTools",
-			"ACE_key_lockpick"
+			"ACE_key_lockpick",
+            "ACE_key_east"
         };
         addItemsToVest[] = {};
         addItemsToBackpack[] = {};
