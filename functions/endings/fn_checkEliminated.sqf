@@ -14,10 +14,10 @@ private _interval = switch (_mode) do {
     params ["_mode","_handle"];
 
     private _eliminationArray = [
-        {side _x == WEST} count playableUnits == 0,
-        {side _x == EAST} count playableUnits == 0,
-        {side _x == INDEPENDENT} count playableUnits == 0,
-        {side _x == CIVILIAN && {[_x] call mitm_common_fnc_isCourier}} count playableUnits == 0
+        {side _x == WEST} count (playableUnits + switchableUnits) == 0,
+        {side _x == EAST} count (playableUnits + switchableUnits) == 0,
+        {side _x == INDEPENDENT} count (playableUnits + switchableUnits) == 0,
+        {side _x == CIVILIAN && {[_x] call mitm_common_fnc_isCourier}} count (playableUnits + switchableUnits) == 0
     ];
 
     if ({_x} count _eliminationArray >= 3) then {
