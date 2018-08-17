@@ -120,6 +120,19 @@ class CfgIslands {
 		};
 	};
 
+	class hellanmaa {
+		displayName = "hellanmaa";
+		type = "russian";
+		isWoodland = true;
+		spawnPosBlu[] = {8199,8295,0};
+		spawnPosOpf[] = {7785,8293,0};
+		previewCamPos[] = {3746,5034,0};
+		previewCamTarget[] = {3792,5027,0};
+		locationBlacklist[] = {
+
+		};
+	};
+
 	class Intro {
 		displayName = "Ramahdi";
 		type = "middle eastern";
