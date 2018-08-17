@@ -10,7 +10,7 @@ if (_unit != (_briefcase getVariable ["mitm_briefcase_owner",objNull])) exitWith
 detach _briefcase;
 [_unit,true] remoteExec ["allowSprint",_unit,false];
 
-private _offset = if !(isNull objectParent _unit) then {[3,0,0]} else {[2,0,0]};
+private _offset = [[3,0,0.3],[2,0,0.3]] select (isNull objectParent _unit);
 _briefcase attachTo [_unit,_offset,""];
 
 [{
