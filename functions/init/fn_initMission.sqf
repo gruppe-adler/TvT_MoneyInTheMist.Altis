@@ -54,7 +54,7 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []]
     },[]] call CBA_fnc_waitUntilAndExecute;
 
     //start game
-    [{missionNamespace getVariable ["MIMT_SETUP_GAMESTARTED",false]},{
+    [{missionNamespace getVariable ["MITM_SETUP_GAMESTARTED",false]},{
         [mitm_briefcase] call mitm_briefcase_fnc_trackBriefcase;
         [] call mitm_endings_fnc_checkEliminated;
         [] call mitm_endings_fnc_endMission;
@@ -71,7 +71,14 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []]
     },[]] call CBA_fnc_waitUntilAndExecute;
 
     //exit JIP
-    if (hasInterface && didJIP && missionNamespace getVariable ["MIMT_SETUP_GAMESTARTED", false] && {(playerSide in [EAST,WEST,INDEPENDENT,CIVILIAN])}) exitWith {player allowDamage true; player setDamage 1};
+    if (
+        hasInterface &&
+        didJIP &&
+        missionNamespace getVariable ["MITM_SETUP_GAMESTARTED", false] &&
+        {((missionNamespace getVariable ["CBA_missionTime",0]) - (missionNamespace getVariable ["MITM_SETUP_GAMESTARTTIME",0])) > (["jipToSpectatorTime",0] call mitm_common_fnc_getMissionConfigEntry)} &&
+        {(playerSide in [EAST,WEST,INDEPENDENT,CIVILIAN])}
+    ) exitWith {player allowDamage true; player setDamage 1};
+
     if (hasInterface && didJIP) then {[player] remoteExec ["mitm_common_fnc_addToZeus",2,false]};
 
 

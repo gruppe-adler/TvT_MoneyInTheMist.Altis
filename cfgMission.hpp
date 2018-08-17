@@ -23,6 +23,7 @@ exfilAreaRadius = 120;                          // radius for the exfil area
 exfilDefenseTime = 540;                         // time in s that the team with the briefcase has to defend their exfil point
 exfilStopDefenseTime = 40;                      // time in s that the exfil area has to be out of control or the briefcase has left the area for the defense timer to reset
 
+jipToSpectatorTime = 1800;                      // time after which JIP players will be moved straight to spectator
 
 class civVehicles {
     randomFuel[] = {0.05,0.35};

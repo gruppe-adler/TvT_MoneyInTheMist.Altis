@@ -10,7 +10,8 @@ MIMT_SETUP_HEADSTARTTIMELEFT = MITM_MISSIONPARAM_COURIERHEADSTART;
     MIMT_SETUP_HEADSTARTTIMELEFT = MIMT_SETUP_HEADSTARTTIMELEFT - 1;
     if (MIMT_SETUP_HEADSTARTTIMELEFT < 0) exitWith {
         [_this select 1] call CBA_fnc_removePerFrameHandler;
-        missionNamespace setVariable ["MIMT_SETUP_GAMESTARTED",true,true];
+        missionNamespace setVariable ["MITM_SETUP_GAMESTARTED",true,true];
+        missionNamespace setVariable ["MITM_SETUP_GAMESTARTTIME",CBA_missionTime,true];
         ["mitm_notification",["Game started","Your enemies are on their way."]] remoteExec ["bis_fnc_showNotification",CIVILIAN,false];
         ["mitm_notification",["Game started","Move out!"]] remoteExec ["bis_fnc_showNotification",[EAST,WEST,INDEPENDENT],false];
     };
