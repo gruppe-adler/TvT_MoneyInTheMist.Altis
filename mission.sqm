@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=145;
+		nextID=151;
 	};
 	class MarkerIDProvider
 	{
@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={11494.56,43.996887,11427.672};
-		dir[]={0.55411744,-0.3369557,0.7611956};
-		up[]={0.19831078,0.94152015,0.27242112};
-		aside[]={0.80847436,-6.1874744e-008,-0.58853465};
+		dir[]={0.27023038,-0.50082046,0.82228857};
+		up[]={0.15635918,0.86555088,0.47578853};
+		aside[]={0.95001692,-1.8044375e-009,-0.31220621};
 	};
 };
 binarizationWanted=0;
@@ -31,8 +31,8 @@ addons[]=
 	"ace_common",
 	"A3_Modules_F_Heli_Misc",
 	"A3_Characters_F",
-	"po_factions_me",
-	"ace_nouniformrestrictions"
+	"ace_nouniformrestrictions",
+	"po_factions_me"
 };
 class AddonsMetaData
 {
@@ -83,16 +83,16 @@ class AddonsMetaData
 		};
 		class Item6
 		{
-			className="po_factions_me";
-			name="po_factions_me";
-			author="Leight, Keeway";
-		};
-		class Item7
-		{
 			className="ace_nouniformrestrictions";
 			name="ACE3 - No Uniform Restrictions";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
+		};
+		class Item7
+		{
+			className="po_factions_me";
+			name="po_factions_me";
+			author="Leight, Keeway";
 		};
 	};
 };
@@ -4339,164 +4339,6 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1578.7101,2.1548202,2571.509};
-					};
-					side="West";
-					flags=1;
-					class Attributes
-					{
-						description="Rifleman (AT)@Alpha-2";
-						isPlayable=1;
-					};
-					id=48;
-					type="B_soldier_LAT_F";
-					atlOffset=188.12338;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="acex_headless_blacklist";
-							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male11ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.04;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={1580.6942,2.1548202,2571.5393};
-					};
-					side="West";
-					flags=1;
-					class Attributes
-					{
-						description="Rifleman (AT)@Alpha-2";
-						isPlayable=1;
-					};
-					id=49;
-					type="B_soldier_LAT_F";
-					atlOffset=188.12338;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="acex_headless_blacklist";
-							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male07ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={1582.7972,2.1548202,2571.4592};
 					};
 					side="West";
@@ -4565,6 +4407,162 @@ class Mission
 										};
 									};
 									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1578.71,2.1544387,2571.509};
+					};
+					side="West";
+					class Attributes
+					{
+						description="Rifleman@Alpha-2";
+						isPlayable=1;
+					};
+					id=149;
+					type="B_Soldier_F";
+					atlOffset=188.123;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1580.694,2.1544387,2571.5391};
+					};
+					side="West";
+					class Attributes
+					{
+						description="Rifleman@Alpha-2";
+						isPlayable=1;
+					};
+					id=150;
+					type="B_Soldier_F";
+					atlOffset=188.123;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male07ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
 								};
 							};
 						};
@@ -5673,164 +5671,6 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1615.8967,1.2365158,2587.1079};
-					};
-					side="East";
-					flags=1;
-					class Attributes
-					{
-						description="Rifleman (AT)@Alpha-2";
-						isPlayable=1;
-					};
-					id=67;
-					type="O_Soldier_LAT_F";
-					atlOffset=187.20508;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="acex_headless_blacklist";
-							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male11ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.04;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={1617.8809,1.2365158,2587.1382};
-					};
-					side="East";
-					flags=1;
-					class Attributes
-					{
-						description="Rifleman (AT)@Alpha-2";
-						isPlayable=1;
-					};
-					id=68;
-					type="O_Soldier_LAT_F";
-					atlOffset=187.20508;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="acex_headless_blacklist";
-							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male07ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={1619.9839,1.2365158,2587.0581};
 					};
 					side="East";
@@ -5899,6 +5739,162 @@ class Mission
 										};
 									};
 									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1615.897,1.2364395,2587.1082};
+					};
+					side="East";
+					class Attributes
+					{
+						description="Rifleman@Alpha-2";
+						isPlayable=1;
+					};
+					id=147;
+					type="O_Soldier_F";
+					atlOffset=187.205;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1617.881,1.2364395,2587.1379};
+					};
+					side="East";
+					class Attributes
+					{
+						description="Rifleman@Alpha-2";
+						isPlayable=1;
+					};
+					id=148;
+					type="O_Soldier_F";
+					atlOffset=187.205;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male07ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
 								};
 							};
 						};
@@ -7006,164 +7002,6 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1650.3547,1.7281234,2576.47};
-					};
-					side="Independent";
-					flags=1;
-					class Attributes
-					{
-						description="Rifleman (AT)@Alpha-2";
-						isPlayable=1;
-					};
-					id=86;
-					type="I_Soldier_LAT_F";
-					atlOffset=187.69669;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="acex_headless_blacklist";
-							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male11ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.04;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={1652.3389,1.7281234,2576.5002};
-					};
-					side="Independent";
-					flags=1;
-					class Attributes
-					{
-						description="Rifleman (AT)@Alpha-2";
-						isPlayable=1;
-					};
-					id=87;
-					type="I_Soldier_LAT_F";
-					atlOffset=187.69669;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="acex_headless_blacklist";
-							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male07ENG";
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=3;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={1654.4419,1.7281234,2576.4202};
 					};
 					side="Independent";
@@ -7232,6 +7070,162 @@ class Mission
 										};
 									};
 									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1650.355,1.7284439,2576.47};
+					};
+					side="Independent";
+					class Attributes
+					{
+						description="Rifleman@Alpha-2";
+						isPlayable=1;
+					};
+					id=145;
+					type="I_soldier_F";
+					atlOffset=187.69701;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1652.339,1.7284439,2576.5};
+					};
+					side="Independent";
+					class Attributes
+					{
+						description="Rifleman@Alpha-2";
+						isPlayable=1;
+					};
+					id=146;
+					type="I_soldier_F";
+					atlOffset=187.69701;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male07ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
 								};
 							};
 						};
@@ -7958,7 +7952,7 @@ class Mission
 			class Item8
 			{
 				linkID=8;
-				item0=48;
+				item0=149;
 				item1=94;
 				class CustomData
 				{
@@ -7968,7 +7962,7 @@ class Mission
 			class Item9
 			{
 				linkID=9;
-				item0=49;
+				item0=150;
 				item1=94;
 				class CustomData
 				{
@@ -8108,7 +8102,7 @@ class Mission
 			class Item23
 			{
 				linkID=23;
-				item0=67;
+				item0=147;
 				item1=94;
 				class CustomData
 				{
@@ -8118,7 +8112,7 @@ class Mission
 			class Item24
 			{
 				linkID=24;
-				item0=68;
+				item0=148;
 				item1=94;
 				class CustomData
 				{
@@ -8258,7 +8252,7 @@ class Mission
 			class Item38
 			{
 				linkID=38;
-				item0=86;
+				item0=145;
 				item1=94;
 				class CustomData
 				{
@@ -8268,7 +8262,7 @@ class Mission
 			class Item39
 			{
 				linkID=39;
-				item0=87;
+				item0=146;
 				item1=94;
 				class CustomData
 				{
