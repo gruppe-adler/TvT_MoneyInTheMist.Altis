@@ -33,7 +33,7 @@ for [{_i=0}, {_i<_vehicleAmount}, {_i=_i+1}] do {
         _usedRoads pushBack _road;
     };
 
-    private _maxDist = 10;
+    private _maxDist = 15;
     while {count _spawnPos == 0} do {
         _spawnPos = _searchPos findEmptyPosition [0,_maxDist,_sideVehicle];
         _maxDist = _maxDist + 5;

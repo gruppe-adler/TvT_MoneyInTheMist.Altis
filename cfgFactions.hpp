@@ -1,19 +1,19 @@
 class cfgFactions {
     class special_forces {
         loadouts[] = {"special_forces_d","special_forces_w"};
-        startVehicles[] = {"rhs_kamaz5350_vv","rhs_kamaz5350_open_vv"};
+        startVehicles[] = {"rhs_kamaz5350_vv","rhs_kamaz5350_vv"};
         exfilHeli = "_veh = createVehicle ['RHS_UH60M',_this select 0,[],0,'FLY'];[_veh,['standard',1],['Holder',0,'AddCargoHook_COver',0]] call BIS_fnc_initVehicle; _veh";
     };
 
     class mafia {
         loadouts[] = {"mafia","mafia"};
-        startVehicles[] = {"RHS_Ural_Civ_03","RHS_Ural_Open_Civ_03"};
+        startVehicles[] = {"RHS_Ural_Civ_03","RHS_Ural_Civ_03"};
         exfilHeli = "_veh = createVehicle ['RHS_Mi8MTV3_vdv',(_this select 0),[],0,'FLY']; [_veh,['LOP_SLA',1],['LeftDoor',0,'hide_door_hatch',0,'AddCargoHook_COver',0]] call BIS_fnc_initVehicle; _veh";
     };
 
     class rebels {
         loadouts[] = {"rebels","rebels"};
-        startVehicles[] = {"rhs_zil131_vv","rhs_zil131_open_vmf"};
+        startVehicles[] = {"rhs_zil131_vv","rhs_zil131_vv"};
         exfilHeli = "_veh = createVehicle ['LOP_IRAN_Mi8MTV3_UPK23',_this select 0,[],0,'FLY'];[_veh,nil,['LeftDoor',0,'hide_door_hatch',0,'AddCargoHook_COver',0]] call BIS_fnc_initVehicle; _veh";
     };
 
