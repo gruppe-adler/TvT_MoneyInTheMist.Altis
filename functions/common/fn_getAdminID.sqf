@@ -9,7 +9,7 @@ if (hasInterface && isServer) then {
     _adminID = clientOwner;
 } else {
     {
-        _ownerID = owner _x;
+        private _ownerID = owner _x;
         if (admin _ownerID > 0) exitWith {_adminID = _ownerID};
         false
     } count allPlayers;

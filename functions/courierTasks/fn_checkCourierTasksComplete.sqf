@@ -22,7 +22,8 @@ if (_sideComplete) then {
 
     _lastPos = MITM_MISSIONPOSITIONS select (count MITM_MISSIONPOSITIONS - 1);
 
-    _taskParams = [_lastPos] call mitm_courierTasks_fnc_createTaskObjects;
+    // setting interaction time on last objective higher
+    _taskParams = [_lastPos, [], 120] call mitm_courierTasks_fnc_createTaskObjects;
     _taskParams params ["",["_taskObject",objNull]];
 
     _taskDescription = "Make your final delivery, the Briefcase.";

@@ -10,12 +10,17 @@ if (_unit != (_briefcase getVariable ["mitm_briefcase_owner",objNull])) exitWith
 detach _briefcase;
 [_unit,true] remoteExec ["allowSprint",_unit,false];
 
-private _offset = if !(isNull objectParent _unit) then {[3,0,0]} else {[2,0,0]};
+private _offset = [[3,0,0.3],[2,0,0.3]] select (isNull objectParent _unit);
 _briefcase attachTo [_unit,_offset,""];
-[{detach _this},_briefcase,0.5] call CBA_fnc_waitAndExecute;
 
-_unit setVariable ["mitm_briefcase_hasBriefcase",false,true];
-_briefcase setVariable ["mitm_briefcase_owner",objNull,true];
+[{
+	params ["_briefcase", "_unit"];
+	detach _briefcase;
+
+	_unit setVariable ["mitm_briefcase_hasBriefcase",false,true];
+	_briefcase setVariable ["mitm_briefcase_owner",objNull,true];
+
+},[_briefcase, _unit],0.5] call CBA_fnc_waitAndExecute;
 
 
 /*_briefcase setPos _pos;*/
