@@ -7,7 +7,6 @@ class mitm_init {
         class initMission {postInit = 1;};
         class moveToInitPos {};
         class registerChatCommands {};
-        class setLoadoutRandomization {};
         class setMissionParams {};
         class setup {};
     };
