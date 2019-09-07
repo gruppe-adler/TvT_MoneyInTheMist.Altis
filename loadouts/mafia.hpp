@@ -44,7 +44,6 @@ class mafia {
         addItemsToUniform[] = {
             LIST_6("ACE_fieldDressing"),
             LIST_4("ACE_morphine"),
-            LIST_3("ACE_CableTie"),
             "ACE_epinephrine",
             "ACE_Flashlight_KSF1",
             "ACE_MapTools",
