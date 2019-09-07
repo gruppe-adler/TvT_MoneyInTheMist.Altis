@@ -85,17 +85,19 @@ class Loadouts {
 //CIVS =========================================================================
 #include "cfgCivilians.hpp"
 class CfgGradCivs {
+    autoInit = 0;
+    minFps = 35;
+    enableOnFoot = 1;
+    enableInVehicles = 1;
+
     maxCivsOnFoot = 40;
-    maxCivsInVehicles = 15;
-    spawnDistancesOnFoot[] = {1000,4500};
-    spawnDistancesInVehicles[] = {1800,6000};
+    maxCivsInVehicles = 25;
+    maxCivsResidents = 0;
+
     backpackProbability = 0.15;
     exitOn = "";
     onSpawn = "";
     onHeldUp = "";
-
-    autoInit = 0;
-    debugMode = 0;
 };
 
 
