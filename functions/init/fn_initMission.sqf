@@ -3,9 +3,10 @@
 MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfigEntry;
 
 [] call mitm_init_fnc_disablePlayableUnits;
-if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []] call CBA_fnc_waitUntilAndExecute};
-
 [] call mitm_init_fnc_setMissionParams;
+
+if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,!MITM_MISSIONPARAM_DEBUGMODE]}, []] call CBA_fnc_waitUntilAndExecute};
+
 [] call mitm_init_fnc_registerChatCommands;
 [] call mitm_groupsettings_fnc_setGroupSettings;
 [] call mitm_init_fnc_initCivs;
