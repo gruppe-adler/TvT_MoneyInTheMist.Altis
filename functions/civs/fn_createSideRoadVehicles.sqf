@@ -34,7 +34,7 @@ private _fnc_isSafe = {
 if (isNil "mitm_civs_vehiclePositions") then {mitm_civs_vehiclePositions = []};
 
 private _thesePositions = [];
-private _islandType = [missionConfigFile >> "cfgIslands" >> worldName,"type","mediterranean"] call BIS_fnc_returnConfigEntry;
+private _islandType = ["type","mediterranean"] call EFUNC(common,getIslandConfigEntry);
 private _availableTypes = [missionConfigFile >> "cfgCivilians" >> _islandType,"vehicles",["C_Offroad_01_F"]] call BIS_fnc_returnConfigEntry;
 private _roads = _locationPosition nearRoads _locationRadius;
 private _vehiclesToCreate = (round ((count _roads) * 0.07 * _amountFactor));
