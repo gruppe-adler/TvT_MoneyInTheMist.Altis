@@ -15,7 +15,7 @@ params [["_briefcase",objNull]];
         !isNull _briefcase &&
         playableUnits findIf {isNull _x} < 0
     },_fnc_disable,_this,20,_fnc_disable] call CBA_fnc_waitUntilAndExecute;
-}] remoteExec ["call",0,false];
+}] remoteExec ["call",0,true];
 
 // disable collision with new JIP player
 addMissionEventHandler ["PlayerConnected",{
