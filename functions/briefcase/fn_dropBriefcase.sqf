@@ -8,14 +8,16 @@ if (_unit != (_briefcase getVariable ["mitm_briefcase_owner",objNull])) exitWith
 
 
 detach _briefcase;
+_briefcase setPosASL ((getPosASL _briefcase) vectorAdd [0,0,0.5]);
+
 [_unit,true] remoteExec ["allowSprint",_unit,false];
 
-private _offset = [[3,0,0.3],[2,0,0.3]] select (isNull objectParent _unit);
-_briefcase attachTo [_unit,_offset,""];
+/* private _offset = [[3,0,0.3],[2,0,0.3]] select (isNull objectParent _unit);
+_briefcase attachTo [_unit,_offset,""]; */
 
 [{
 	params ["_briefcase", "_unit"];
-	detach _briefcase;
+	/* detach _briefcase; */
 
 	_unit setVariable ["mitm_briefcase_hasBriefcase",false,true];
 	_briefcase setVariable ["mitm_briefcase_owner",objNull,true];

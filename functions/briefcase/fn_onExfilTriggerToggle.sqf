@@ -20,7 +20,7 @@ if (_active) then {
         _trigger setVariable ["mitm_briefcase_stopCountdownHandle",-1];
 
     } else {
-        ["mitm_notification",["EXFIL","We are on our way. Hold tight."]] remoteExec ["bis_fnc_showNotification",_ownerSide,false];
+        ["mitm_notification",["EXFIL","Exfil is on the way. Hold tight."]] remoteExec ["bis_fnc_showNotification",_ownerSide,false];
         ["mitm_notification",["PREVENT EXFIL","Enemy exfil is on the way. Attack quickly!"]] remoteExec ["bis_fnc_showNotification",_otherSides,false];
 
 

@@ -1,7 +1,7 @@
 {
     "name": "tvt-moneyinthemist",
     "description": "A dynamic four-party-tvt mission for all maps.",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "contributors": [
         {
             "name": "McDiod"
@@ -14,6 +14,7 @@
         "grad-scoreboard": ">=0.1.1",
         "grad-winratetracker": ">=0.0.2",
         "grad-gpstracker": ">=0.2.0",
-        "grad-civs": ">=0.3.1"
+        "grad-civs": ">=0.3.1",
+        "grad-islandconfig": ">0.0.1"
     }
 }

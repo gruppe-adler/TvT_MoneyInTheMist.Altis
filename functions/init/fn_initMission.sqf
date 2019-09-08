@@ -3,9 +3,10 @@
 MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfigEntry;
 
 [] call mitm_init_fnc_disablePlayableUnits;
-if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []] call CBA_fnc_waitUntilAndExecute};
-
 [] call mitm_init_fnc_setMissionParams;
+
+if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,!MITM_MISSIONPARAM_DEBUGMODE]}, []] call CBA_fnc_waitUntilAndExecute};
+
 [] call mitm_init_fnc_registerChatCommands;
 [] call mitm_groupsettings_fnc_setGroupSettings;
 [] call mitm_init_fnc_initCivs;
@@ -19,8 +20,11 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,false]}, []]
     [] call mitm_setup_fnc_setTime;
     [] call mitm_setup_fnc_setWeather;
     [] call mitm_setup_fnc_setMapRespawnPos;
-    [] call mitm_init_fnc_setup;
     [] call mitm_briefcase_fnc_addBriefcaseEHs;
+
+    [{(missionNamespace getVariable ["CBA_missionTime",0]) > 0},{
+        [] call mitm_init_fnc_setup;
+    },[]] call CBA_fnc_waitUntilAndExecute;
 
     //vehicles and teleport
     [{missionNamespace getVariable ["MITM_SETUP_PLAYZONECONFIRMATION",false] && {isNil _x} count ["MITM_STARTPOSITION_WEST","MITM_STARTPOSITION_EAST","MITM_STARTPOSITION_INDEP","MITM_STARTPOSITION_COURIER"] == 0},{

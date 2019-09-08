@@ -15,11 +15,6 @@ private _civLoadout = _civ select MITM_ISLANDPARAM_ISWOODLAND;
 ["IND_F",_indepLoadout] call GRAD_Loadout_fnc_FactionSetLoadout;
 ["CIV_F",_civLoadout] call GRAD_Loadout_fnc_FactionSetLoadout;
 
-[_bluforLoadout] call mitm_init_fnc_setLoadoutRandomization;
-[_opforLoadout] call mitm_init_fnc_setLoadoutRandomization;
-[_indepLoadout] call mitm_init_fnc_setLoadoutRandomization;
-
-
 // set courier randomization manually, because it is island dependent
 private _islandType = ["type",""] call mitm_common_fnc_getIslandConfigEntry;
 {

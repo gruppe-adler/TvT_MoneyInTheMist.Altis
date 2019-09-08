@@ -4,6 +4,7 @@ class mitm_briefcase {
         class addBriefcaseEHs {};
         class addInteractions {};
         class attachBriefcase {};
+        class disableCollision {};
         class dropBriefcase {};
         class fixBriefcase {};
         class onAnimChanged {};

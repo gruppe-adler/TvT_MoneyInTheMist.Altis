@@ -2,7 +2,9 @@
 
 params ["_message","_timeout","_varName","_timeOutValue",["_global",false]];
 
-[_message,"MitM (Admin)"] remoteExec ["mitm_common_fnc_customChat",[] call mitm_common_fnc_getAdminID,false];
+[[_message,"MitM (Admin)"],{
+    [{!isNull (findDisplay 46)},FUNC(customChat),_this] call CBA_fnc_waitUntilAndExecute;
+}] remoteExec ["call",[] call mitm_common_fnc_getAdminID,false];
 
 missionNamespace setVariable [_varName,nil,true];
 private _onVarSet = {

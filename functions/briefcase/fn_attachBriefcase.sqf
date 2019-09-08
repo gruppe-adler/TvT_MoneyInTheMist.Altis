@@ -4,7 +4,7 @@ params [["_unit",objNull],["_vehicleMode",false]];
 
 private _briefcase = mitm_briefcase;
 
-if (isNull _unit) exitWith {ERROR_1("Object to attach to is null.")};
+if (isNull _unit) exitWith {ERROR_1("Object to attach to is null.",_unit)};
 
 private _prevOwner = _briefcase getVariable ["mitm_briefcase_owner",objNull];
 if (!isNull _prevOwner) then {
@@ -25,5 +25,5 @@ _briefcase setVariable ["mitm_briefcase_owner",_unit,true];
 
 [side _unit] call mitm_briefcase_fnc_activatePickupPoint;
 if (currentWeapon _unit != "") then {
-    [_unit,["SwitchWeapon",_unit,_unit,99]] remoteExec ["action",_unit,false];
+    [_unit,["SwitchWeapon",_unit,_unit,999]] remoteExec ["action",_unit,false];
 };

@@ -101,3 +101,9 @@ The play zone is completely randomly generated every game. The mission admin can
 **Example Play Zone**
 
 ![](https://i.imgur.com/bGciOnd.jpg)
+
+## Chat Commands
+
+* `#mitm_accept` - accepts playzone on game start
+* `#mitm_decline` - declines playzone on game start and prompts new generation
+* `#mitm_fixBriefcase` - used if briefcase is stuck, will detach briefcase and move to safe near location
