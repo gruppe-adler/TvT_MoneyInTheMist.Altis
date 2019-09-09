@@ -265,7 +265,6 @@ class cfgCivilians {
         };
 
         headgear[] = {
-            "U_I_C_Soldier_Bandit_4_F",
             "H_Bandanna_gry",
             "H_Bandanna_cbr",
             "H_Bandanna_surfer",
@@ -280,8 +279,6 @@ class cfgCivilians {
 
         faces[] = {
             "WhiteHead_12",
-            "U_I_C_Soldier_Bandit_4_F",
-            "H_Cap_surfer",
             "TanoanHead_A3_02",
             "TanoanHead_A3_03",
             "AsianHead_A3_05",
@@ -301,8 +298,6 @@ class cfgCivilians {
         };
 
         goggles[] = {
-            "U_I_C_Soldier_Bandit_4_F",
-            "H_Cap_surfer",
             "GreekHead_A3_03",
             "G_Shades_Black",
             "G_Spectacles",
@@ -340,9 +335,7 @@ class cfgCivilians {
             "RDS_JAWA353_Civ_01",
             "RHS_Ural_Civ_01",
             "RHS_Ural_Open_Civ_02",
-            "C_Offroad_02_unarmed_F_black",
-            "C_Offroad_02_unarmed_F",
-            "C_Offroad_02_unarmed_F_green"
+            "C_Offroad_02_unarmed_F"
         };
     };
 };
