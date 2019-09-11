@@ -5,6 +5,8 @@ if (hasInterface) then {
         _value = _this select 1;
         _value params ["_winningSide", "_endText"];
 
+        [player, true] call TFAR_fnc_forceSpectator;
+
         [_winningSide,_endText] spawn {
             params ["_winningSide","_endText"];
 
