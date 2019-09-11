@@ -68,7 +68,7 @@ if (hasInterface) then {
     if (isServer) then {
         [{count (missionNamespace getVariable ["mitm_gameEnded", []]) > 0}, {
             ["mitm_gameEnded", mitm_gameEnded] call (_this select 0);
-        }, [_endMission]] call CBA_fnc_waitUntilAndExecute;
+        }, [_endMissionServer]] call CBA_fnc_waitUntilAndExecute;
     };
 };
 
