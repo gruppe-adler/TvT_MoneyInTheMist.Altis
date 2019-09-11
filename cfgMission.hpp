@@ -26,7 +26,7 @@ exfilStopDefenseTime = 40;                      // time in s that the exfil area
 jipToSpectatorTime = 1800;                      // time after which JIP players will be moved straight to spectator
 
 class civVehicles {
-    randomFuel[] = {0.05,0.35};
+    randomFuel[] = {0.15,0.35};
 
     carLocationAmountFactor = 0.3;
     carLocationMinDist = 30;

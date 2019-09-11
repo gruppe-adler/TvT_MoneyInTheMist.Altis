@@ -46,6 +46,7 @@ for [{_i=0}, {_i<_vehicleAmount}, {_i=_i+1}] do {
     _veh setDir _dir;
     [_veh] call mitm_common_fnc_emptyContainer;
     _veh setVariable ["ace_vehiclelock_lockpickStrength",300,true];
+    _veh setVariable ["ace_vehiclelock_lockSide", _side, true];
 
 
     // fill vehicle ============================================================
