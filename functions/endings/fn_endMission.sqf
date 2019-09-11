@@ -1,6 +1,7 @@
 #include "component.hpp"
 
 if (hasInterface) then {
+
     _endMission = {
         _value = _this select 1;
         _value params ["_winningSide", "_endText"];
@@ -60,7 +61,7 @@ if (hasInterface) then {
 
     //dedicated
     if (!isServer) then {
-        "mitm_gameEnded" addPublicVariableEventHandler _endMission;
+        "mitm_gameReplayEnded" addPublicVariableEventHandler _endMission;
     };
 
     //localhost
@@ -70,3 +71,16 @@ if (hasInterface) then {
         }, [_endMission]] call CBA_fnc_waitUntilAndExecute;
     };
 };
+
+_endMissionServer = {
+    call GRAD_replay_fnc_stopRecord;
+    [{
+        REPLAY_FINISHED
+    }, {
+            missionNamespace setVariable ["mitm_gameReplayEnded", true, true];
+    }, []] call CBA_fnc_waitUntilAndExecute;
+};
+
+if (isServer) then {
+    "mitm_gameEnded" addPublicVariableEventHandler _endMissionServer;
+};      

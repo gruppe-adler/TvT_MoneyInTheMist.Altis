@@ -14,6 +14,8 @@ MIMT_SETUP_HEADSTARTTIMELEFT = MITM_MISSIONPARAM_COURIERHEADSTART;
         missionNamespace setVariable ["MITM_SETUP_GAMESTARTTIME",CBA_missionTime,true];
         ["mitm_notification",["Game started","Your enemies are on their way."]] remoteExec ["bis_fnc_showNotification",CIVILIAN,false];
         ["mitm_notification",["Game started","Move out!"]] remoteExec ["bis_fnc_showNotification",[EAST,WEST,INDEPENDENT],false];
+        // start replay recording
+        [] remoteExec ["GRAD_replay_fnc_init", 0, true];
     };
     [MIMT_SETUP_HEADSTARTTIMELEFT] remoteExec ["mitm_setup_fnc_preparationTimeCountdown",[WEST,EAST,INDEPENDENT],false];
     publicVariable "MIMT_SETUP_HEADSTARTTIMELEFT";
