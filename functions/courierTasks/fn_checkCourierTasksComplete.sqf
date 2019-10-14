@@ -4,9 +4,7 @@ private _tasksArray = MITM_SETUP_TASKSNAMESPACE getVariable ["courier_deliverTas
 
 private _mainComplete = {[_x] call BIS_fnc_taskState == "Succeeded"} count _tasksArray == 7;
 if (_mainComplete) exitWith {
-    missionNamespace setVariable ["mitm_endInProgressServer",true];
-    missionNamespace setVariable ["mitm_gameEnded", [CIVILIAN, "BRIEFCASE DELIVERED!"], true];
-
+    [CIVILIAN,"BRIEFCASE DELIVERED!"] spawn EFUNC(endings,endMissionServer);
     [CIVILIAN,15,"Main Delivery"] call mitm_points_fnc_addPoints;
     [CIVILIAN] call mitm_endings_fnc_saveScore;
 };

@@ -61,7 +61,7 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,!MITM_MISSIO
     [{missionNamespace getVariable ["MITM_SETUP_GAMESTARTED",false]},{
         [mitm_briefcase] call mitm_briefcase_fnc_trackBriefcase;
         [] call mitm_endings_fnc_checkEliminated;
-        [] call mitm_endings_fnc_endMission;
+        [] call grad_replay_fnc_init;
 
         if (isServer) then {
             mitm_bluforPlayers = [west] call grad_winrateTracker_fnc_getPlayerNamesOfSide;

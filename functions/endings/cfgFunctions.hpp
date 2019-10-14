@@ -1,7 +1,7 @@
 class mitm_endings {
     class endings {
         class checkEliminated {};
-        class endMission {};
+        class endMissionServer {};
         class saveScore {};
     };
 };

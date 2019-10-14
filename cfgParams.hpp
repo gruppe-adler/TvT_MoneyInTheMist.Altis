@@ -15,8 +15,8 @@ class Params {
 
     class CourierHeadStart {
         title = "Courier Head Start Time (Minutes)";
-        values[] = {60,120,180,240,300,360,420,480,540,600};
-        texts[] = {"1","2","3","4","5","6","7","8","9","10"};
+        values[] = {10,60,120,180,240,300,360,420,480,540,600};
+        texts[] = {"0","1","2","3","4","5","6","7","8","9","10"};
         default = 120;
     };
 
@@ -46,6 +46,6 @@ class Params {
         title = "Debug Mode";
         values[] = {0,1};
         texts[] = {"Off","On"};
-        default = 1;
+        default = 0;
     };
 };

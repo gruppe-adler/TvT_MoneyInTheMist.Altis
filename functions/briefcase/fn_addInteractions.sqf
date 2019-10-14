@@ -33,7 +33,13 @@ _action = ["mitm_briefcase_give","Give Briefcase","",{
 
     [_unit] remoteExec ["mitm_briefcase_fnc_attachBriefcase",2,false];
 
-},{(_this select 1) getVariable ["mitm_briefcase_hasBriefcase",false] && {isPlayer (_this select 0)} && {alive (_this select 0)}}] call ace_interact_menu_fnc_createAction;
+},{
+    params ["_target","_caller"];
+    _caller getVariable ["mitm_briefcase_hasBriefcase",false] &&
+    {isPlayer _target} &&
+    {alive _target} &&
+    {isNull objectParent _target}
+}] call ace_interact_menu_fnc_createAction;
 ["CAManBase",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 
 

@@ -51,8 +51,7 @@ _trigger setVariable ["mitm_briefcase_heli",_heli];
         params ["_heli","_trigger","_ownerSide"];
 
         sleep 2;
-        missionNamespace setVariable ["mitm_endInProgressServer",true];
-        missionNamespace setVariable ["mitm_gameEnded", [_ownerSide, "BRIEFCASE SECURED"], true];
+        [_ownerSide,"BRIEFCASE SECURED"] spawn EFUNC(endings,endMissionServer);
 
         [_ownerSide] call mitm_endings_fnc_saveScore;
     };

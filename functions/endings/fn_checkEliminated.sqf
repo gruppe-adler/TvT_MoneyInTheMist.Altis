@@ -39,9 +39,8 @@ private _interval = switch (_mode) do {
                 } forEach _eliminationArray;
 
                 [_winner] call mitm_endings_fnc_saveScore;
+                [_winner, "OPPONENTS ELIMINATED!"] spawn FUNC(endMissionServer);
 
-                missionNamespace setVariable ["mitm_endInProgressServer",true];
-                missionNamespace setVariable ["mitm_gameEnded", [_winner, "OPPONENTS ELIMINATED!"], true];
             } else {
                 missionNamespace setVariable ["mitm_sidesEliminatedFor",_timer + 1];
             };
