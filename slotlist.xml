@@ -16,8 +16,8 @@
       </fireteam>
       <fireteam>
         <slot shortcode="FTL" description="Team Leader"/>
-        <slot shortcode="AT" description="Rifleman (AT)"/>
-        <slot shortcode="AT" description="Rifleman (AT)"/>
+        <slot shortcode="RFL" description="Rifleman"/>
+        <slot shortcode="RFL" description="Rifleman"/>
         <slot shortcode="RFL" description="Rifleman"/>
       </fireteam>
       <fireteam>
@@ -41,8 +41,8 @@
       </fireteam>
       <fireteam>
         <slot shortcode="FTL" description="Team Leader"/>
-        <slot shortcode="AT" description="Rifleman (AT)"/>
-        <slot shortcode="AT" description="Rifleman (AT)"/>
+        <slot shortcode="RFL" description="Rifleman"/>
+        <slot shortcode="RFL" description="Rifleman"/>
         <slot shortcode="RFL" description="Rifleman"/>
       </fireteam>
       <fireteam>
@@ -66,8 +66,8 @@
       </fireteam>
       <fireteam>
         <slot shortcode="FTL" description="Team Leader"/>
-        <slot shortcode="AT" description="Rifleman (AT)"/>
-        <slot shortcode="AT" description="Rifleman (AT)"/>
+        <slot shortcode="RFL" description="Rifleman"/>
+        <slot shortcode="RFL" description="Rifleman"/>
         <slot shortcode="RFL" description="Rifleman"/>
       </fireteam>
       <fireteam>
