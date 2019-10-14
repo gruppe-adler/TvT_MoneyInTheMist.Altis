@@ -2,7 +2,7 @@
 
 if (!hasInterface) exitWith {};
 
-[{!isNull (findDisplay 46)}, {
+[{!isNull (findDisplay 46) && {!isNil "mitm_adminMessages_channel"}}, {
 
     params [["_message",""],["_callSign","MitM"]];
 
