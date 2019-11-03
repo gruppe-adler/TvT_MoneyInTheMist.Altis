@@ -8,3 +8,4 @@
 #include "points\cfgFunctions.hpp"
 #include "init\cfgFunctions.hpp"
 #include "setup\cfgFunctions.hpp"
+#include "template\cfgFunctions.hpp"
