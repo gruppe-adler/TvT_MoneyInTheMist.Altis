@@ -6,6 +6,23 @@ params [["_gameLogic",objNull],["_side",sideUnknown]];
 
 private _pos = getPos _gameLogic;
 
+// random side if no side given
+if (_side isEqualTo sideUnknown) then {
+    private _sidesLeft = [];
+    {
+        if (isNil (_x#0)) then {
+            _sidesLeft pushBack _x#1
+        };
+    } forEach [
+        ["MITM_STARTPOSITION_COURIER",CIVILIAN],
+        ["MITM_STARTPOSITION_WEST",WEST],
+        ["MITM_STARTPOSITION_EAST",EAST],
+        ["MITM_STARTPOSITION_INDEP",INDEPENDENT]
+    ];
+    _side = selectRandom _sidesLeft;
+};
+
+// set var
 switch (_side) do {
     case (CIVILIAN): {
         MITM_STARTPOSITION_COURIER = _pos;
