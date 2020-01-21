@@ -22,6 +22,9 @@ if (_side isEqualTo sideUnknown) then {
     _side = selectRandom _sidesLeft;
 };
 
+// store side in logic for fn_createExfilPoint
+_gameLogic setVariable [QGVAR(randomizedSide),_side,false];
+
 // set var
 switch (_side) do {
     case (CIVILIAN): {

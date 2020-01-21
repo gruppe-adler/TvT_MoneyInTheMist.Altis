@@ -29,7 +29,9 @@ if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,!MITM_MISSIO
     //vehicles and teleport
     [{missionNamespace getVariable ["MITM_SETUP_PLAYZONECONFIRMATION",false] && {isNil _x} count ["MITM_STARTPOSITION_WEST","MITM_STARTPOSITION_EAST","MITM_STARTPOSITION_INDEP","MITM_STARTPOSITION_COURIER"] == 0},{
 
-        [] call mitm_setup_fnc_createExfilPoints;
+        if !(missionNamespace getVariable ["MITM_ISTEMPLATEMISSION",false]) then {            
+            [] call mitm_setup_fnc_createExfilPoints;
+        };
 
         [WEST,MITM_STARTPOSITION_WEST,"MITM_SETUP_STARTVEHICLEDONE_WEST"] call mitm_setup_fnc_createStartVehicle;
         [EAST,MITM_STARTPOSITION_EAST,"MITM_SETUP_STARTVEHICLEDONE_EAST"] call mitm_setup_fnc_createStartVehicle;
