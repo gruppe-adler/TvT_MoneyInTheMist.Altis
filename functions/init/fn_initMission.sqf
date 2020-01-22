@@ -5,7 +5,12 @@ MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfi
 [] call mitm_init_fnc_disablePlayableUnits;
 [] call mitm_init_fnc_setMissionParams;
 
-/* if (hasInterface) then {[{!isNull (findDisplay 46)}, {openMap [true,!MITM_MISSIONPARAM_DEBUGMODE]}, []] call CBA_fnc_waitUntilAndExecute}; */
+if (hasInterface) then {
+    [{!isNull (findDisplay 46)},{
+        if (missionNamespace getVariable ["MITM_TPTOSTARTDONE",false]) exitWith {};
+        openMap [true,!MITM_MISSIONPARAM_DEBUGMODE]
+    },[]] call CBA_fnc_waitUntilAndExecute
+};
 
 [] call mitm_init_fnc_registerChatCommands;
 [] call mitm_groupsettings_fnc_setGroupSettings;
@@ -38,13 +43,18 @@ MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfi
         [INDEPENDENT,MITM_STARTPOSITION_INDEP,"MITM_SETUP_STARTVEHICLEDONE_INDEP"] call mitm_setup_fnc_createStartVehicle;
         [CIVILIAN,MITM_STARTPOSITION_COURIER,"MITM_SETUP_STARTVEHICLEDONE_COURIER"] call mitm_setup_fnc_createStartVehicle;
 
-        if (if ((["teleportPlayersToStart",1] call EFUNC(common,getMissionConfigEntry)) == 1) then {
+        if ((["teleportPlayersToStart",1] call EFUNC(common,getMissionConfigEntry)) == 1) then {
             [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_WEST",false]},{[WEST,MITM_STARTPOSITION_WEST] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
             [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_EAST",false]},{[EAST,MITM_STARTPOSITION_EAST] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
             [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_INDEP",false]},{[INDEPENDENT,MITM_STARTPOSITION_INDEP] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
             [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_COURIER",false]},{[CIVILIAN,MITM_STARTPOSITION_COURIER] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
         } else {
             INFO("Not teleporting players to start - disabled by config.");
+            [[],{
+                if (!hasInterface) exitWith {};
+                missionNamespace setVariable ["MITM_TPTOSTARTDONE",true,false];
+                openMap [false,false];
+            }] remoteExecCall ["call",0,true];
         };
 
     },[]] call CBA_fnc_waitUntilAndExecute;
