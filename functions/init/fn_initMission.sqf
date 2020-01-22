@@ -29,7 +29,7 @@ MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfi
     //vehicles and teleport
     [{missionNamespace getVariable ["MITM_SETUP_PLAYZONECONFIRMATION",false] && {isNil _x} count ["MITM_STARTPOSITION_WEST","MITM_STARTPOSITION_EAST","MITM_STARTPOSITION_INDEP","MITM_STARTPOSITION_COURIER"] == 0},{
 
-        if !(missionNamespace getVariable ["MITM_ISTEMPLATEMISSION",false]) then {            
+        if !(missionNamespace getVariable ["MITM_ISTEMPLATEMISSION",false]) then {
             [] call mitm_setup_fnc_createExfilPoints;
         };
 
@@ -38,10 +38,14 @@ MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfi
         [INDEPENDENT,MITM_STARTPOSITION_INDEP,"MITM_SETUP_STARTVEHICLEDONE_INDEP"] call mitm_setup_fnc_createStartVehicle;
         [CIVILIAN,MITM_STARTPOSITION_COURIER,"MITM_SETUP_STARTVEHICLEDONE_COURIER"] call mitm_setup_fnc_createStartVehicle;
 
-        [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_WEST",false]},{[WEST,MITM_STARTPOSITION_WEST] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
-        [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_EAST",false]},{[EAST,MITM_STARTPOSITION_EAST] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
-        [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_INDEP",false]},{[INDEPENDENT,MITM_STARTPOSITION_INDEP] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
-        [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_COURIER",false]},{[CIVILIAN,MITM_STARTPOSITION_COURIER] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
+        if (if ((["teleportPlayersToStart",1] call EFUNC(common,getMissionConfigEntry)) == 1) then {
+            [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_WEST",false]},{[WEST,MITM_STARTPOSITION_WEST] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
+            [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_EAST",false]},{[EAST,MITM_STARTPOSITION_EAST] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
+            [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_INDEP",false]},{[INDEPENDENT,MITM_STARTPOSITION_INDEP] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
+            [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_COURIER",false]},{[CIVILIAN,MITM_STARTPOSITION_COURIER] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
+        } else {
+            INFO("Not teleporting players to start - disabled by config.");
+        };
 
     },[]] call CBA_fnc_waitUntilAndExecute;
 
