@@ -4,6 +4,11 @@ params ["_side","_searchPos","_varNameComplete"];
 
 if (!isServer) exitWith {};
 
+if ((["spawnStartVehicles",1] call EFUNC(common,getMissionConfigEntry)) == 0) exitWith {
+    INFO_1("Not spawning start vehicles ""%1"" - disabled by config.",_varNameComplete);
+    missionNamespace setVariable [_varNameComplete,true,true];
+};
+
 // spawn vehicle ===============================================================
 private _sideVehicles = switch (_side) do {
     case (WEST): {[missionConfigFile >> "cfgFactions" >> MITM_MISSIONPARAM_FACTION_WEST,"startVehicles",[]] call BIS_fnc_returnConfigEntry};
