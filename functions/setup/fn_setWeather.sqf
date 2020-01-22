@@ -1,3 +1,5 @@
+#include "component.hpp"
+
 private ["_overcast"];
 
 if (!isServer) exitWith {};
