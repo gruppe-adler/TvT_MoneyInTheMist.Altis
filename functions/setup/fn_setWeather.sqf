@@ -1,6 +1,10 @@
+#include "component.hpp"
+
 private ["_overcast"];
 
 if (!isServer) exitWith {};
+
+if ((["useParamWeather",1] call EFUNC(common,getMissionConfigEntry)) == 0) exitWith {INFO("Not setting weather - disabled by config.")};
 
 //OVERCAST =====================================================================
 //random

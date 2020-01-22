@@ -1,3 +1,8 @@
+spawnStartVehicles = 1;                         // set this to 0 to disable scripted spawning of starting vehicles (useful in template mode with non-random starting positions)
+useParamWeather = 1;                            // set this to 0 if you want to use the weather you set in editor instead of the weather set in mission params
+useParamTime = 1;                               // set this to 0 if you want to use the time of day you set in editor instead of the time of day set in mission params
+teleportPlayersToStart = 1;                     // set this to 0 if you don't want player units teleported to their respective starting positions on game start (useful in template mode when placing units in editor)
+
 locationDistances[] = {1000,2000};              // min and max distances for next courier location
 locationAngles[] = {-45,45};                    // min and max angles for next courier position compared to old direction
 locationProbability = 80;                       // probability in percent that a location is to be chosen instead of a random position near a road
