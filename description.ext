@@ -1,7 +1,7 @@
 #define MODULES_DIRECTORY node_modules
 
 #include "cfgParams.hpp"
-#include "cfgFactions.hpp"
+#include "USER\cfgFactions.hpp"
 
 #include "node_modules\@gruppe-adler\replay\ui\defines.hpp"
 #include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
@@ -48,7 +48,7 @@ class RscTitles {
 
 //MISSION ======================================================================
 class cfgMission {
-    #include "cfgMission.hpp"
+    #include "USER\cfgMission.hpp"
 };
 
 //FUNCTIONS ====================================================================
@@ -98,7 +98,7 @@ class Loadouts {
 };
 
 //CIVS =========================================================================
-#include "cfgCivilians.hpp"
+#include "USER\cfgCivilians.hpp"
 class CfgGradCivs {
     autoInit = 0;
     minFps = 35;
