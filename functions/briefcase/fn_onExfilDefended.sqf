@@ -23,6 +23,9 @@ createVehicleCrew _heli;
 _heli allowDamage false;
 _heli setCombatMode "BLUE";
 {_x allowDamage false} forEach (crew _heli);
+{
+    _x addCuratorEditableObjects [[_heli],true];
+} forEach allCurators;
 
 _trigger setVariable ["mitm_briefcase_heli",_heli];
 

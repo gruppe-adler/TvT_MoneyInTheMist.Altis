@@ -25,5 +25,5 @@ private _exfilPoints = [];
 
     _exfilPoints pushBack _pos;
 
-    [[WEST,EAST,INDEPENDENT] select _forEachIndex] call EFUNC(template,createExfilPoint);    
+    [_pos,[WEST,EAST,INDEPENDENT] select _forEachIndex] call EFUNC(template,createExfilPoint);    
 } forEach ["MITM_EXFIL_WEST","MITM_EXFIL_EAST","MITM_EXFIL_GUER"];
