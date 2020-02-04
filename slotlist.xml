@@ -74,6 +74,7 @@
         <slot shortcode="FTL" description="Team Leader"/>
         <slot shortcode="RFL" description="Rifleman"/>
         <slot shortcode="RFL" description="Rifleman"/>
+        <slot shortcode="RFL" description="Rifleman"/>
       </fireteam>
     </squad>
   </company>
