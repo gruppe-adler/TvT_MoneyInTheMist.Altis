@@ -39,7 +39,7 @@ class mafia {
         compass = "ItemCompass";
         watch = "ItemWatch";
         gps = "ItemGPS";
-        radio = "tf_fadak";
+        radio = "TFAR_fadak";
         nvgoggles = "";
         addItemsToUniform[] = {
             LIST_6("ACE_fieldDressing"),

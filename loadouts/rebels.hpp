@@ -49,7 +49,7 @@ class rebels {
         compass = "ItemCompass";
         watch = "ItemWatch";
         gps = "ItemGPS";
-        radio = "tf_anprc148jem";
+        radio = "TFAR_anprc148jem";
         addItemsToUniform[] = {
             LIST_6("ACE_fieldDressing"),
             LIST_4("ACE_morphine"),
