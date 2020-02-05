@@ -17,6 +17,7 @@ class mitm_briefcase {
         class onUnconscious {};
         class onWeaponChanged {};
         class showTracker {};
+        class spawnBriefCaseContents {};
         class trackBriefcase {};
     };
 };
