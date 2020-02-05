@@ -36,11 +36,6 @@
             _onTPParams = [_pos];
 
             [_x,_pos,_onTP,_onTPParams] call mitm_common_fnc_teleport;
-
-            if (player == _x) then {
-                missionNamespace setVariable ["MITM_TPTOSTARTDONE",true,false];
-                openMap [false,false]
-            };
         };
         false
     } count playableUnits;

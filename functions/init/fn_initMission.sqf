@@ -5,10 +5,12 @@ MITM_ISLANDPARAM_ISWOODLAND = ["isWoodland"] call mitm_common_fnc_getIslandConfi
 [] call mitm_init_fnc_disablePlayableUnits;
 [] call mitm_init_fnc_setMissionParams;
 
+// open / close map
 if (hasInterface) then {
     [{!isNull (findDisplay 46)},{
-        if (missionNamespace getVariable ["MITM_TPTOSTARTDONE",false]) exitWith {};
-        openMap [true,!MITM_MISSIONPARAM_DEBUGMODE]
+        if (missionNamespace getVariable ["MITM_SETUP_COUNTDOWNSTARTED",false]) exitWith {};
+        openMap [true,!MITM_MISSIONPARAM_DEBUGMODE];
+        [{missionNamespace getVariable ["MITM_SETUP_COUNTDOWNSTARTED",false]},{openMap [false,false]},[]] call CBA_fnc_waitUntilAndExecute;
     },[]] call CBA_fnc_waitUntilAndExecute
 };
 
@@ -50,11 +52,6 @@ if (hasInterface) then {
             [{missionNamespace getVariable ["MITM_SETUP_STARTVEHICLEDONE_COURIER",false]},{[CIVILIAN,MITM_STARTPOSITION_COURIER] call mitm_setup_fnc_teleportSide},[]] call CBA_fnc_waitUntilAndExecute;
         } else {
             INFO("Not teleporting players to start - disabled by config.");
-            [[],{
-                if (!hasInterface) exitWith {};
-                missionNamespace setVariable ["MITM_TPTOSTARTDONE",true,false];
-                openMap [false,false];
-            }] remoteExecCall ["call",0,true];
         };
 
     },[]] call CBA_fnc_waitUntilAndExecute;
@@ -66,6 +63,8 @@ if (hasInterface) then {
         [{
             [] call mitm_setup_fnc_startGameTimer;
         },[],3] call CBA_fnc_waitAndExecute;
+
+        if (isServer) then {missionNamespace setVariable ["MITM_SETUP_COUNTDOWNSTARTED",true,true]};
     },[]] call CBA_fnc_waitUntilAndExecute;
 
     //init briefcase
@@ -100,7 +99,5 @@ if (hasInterface) then {
     ) exitWith {player allowDamage true; player setDamage 1};
 
     if (hasInterface && didJIP) then {[player] remoteExec ["mitm_common_fnc_addToZeus",2,false]};
-
-
 
 }, []] call CBA_fnc_waitUntilAndExecute;
