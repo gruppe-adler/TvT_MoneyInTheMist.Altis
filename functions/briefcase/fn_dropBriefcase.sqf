@@ -22,6 +22,9 @@ _briefcase attachTo [_unit,_offset,""]; */
 	_unit setVariable ["mitm_briefcase_hasBriefcase",false,true];
 	_briefcase setVariable ["mitm_briefcase_owner",objNull,true];
 
+    // spawn debris on water surfcase, if in water
+    [_briefcase] call mitm_briefcase_fnc_spawnBriefCaseContents;
+
 },[_briefcase, _unit],0.5] call CBA_fnc_waitAndExecute;
 
 
