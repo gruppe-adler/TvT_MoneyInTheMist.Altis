@@ -1,35 +1,52 @@
 #include "component.hpp"
 
-params ["_pos",["_blackListTypes",[]], ["_interactionTime", 25]];
+params ["_posData",["_blackListTypes",[]], ["_interactionTime", 25]];
 
-private _types = [
-    "CIV", 0.5,
-    "DEADDROP",0.5
-];
+_posData params ["_pos","_type","_taskObject"];
 
-private _blackList = +_blackListTypes;
-while {count _blackList > 0} do {
-    _blackListType = _blackList deleteAt 0;
-    _typesID = _types find _blackListType;
-    if (_typesID >= 0) then {
-        _types deleteAt (_typesID + 1);
-        _types deleteAt _typesID;
+if (isNil "_type") then {
+    private _types = [
+        "CIV", 0.5,
+        "DEADDROP",0.5
+    ];
+
+    private _blackList = +_blackListTypes;
+    while {count _blackList > 0} do {
+        _blackListType = _blackList deleteAt 0;
+        _typesID = _types find _blackListType;
+        if (_typesID >= 0) then {
+            _types deleteAt (_typesID + 1);
+            _types deleteAt _typesID;
+        };
     };
-};
 
-if (count _types == 0) exitWith {[false,objNull,""]};
-private _type = _types call BIS_fnc_selectRandomWeighted;
+    if (count _types == 0) exitWith {[false,objNull,""]};
+    _type = _types call BIS_fnc_selectRandomWeighted;
+
+    INFO_2("Randomly selected task object type at %1 to be a %2.",_pos,_type);
+
+} else {
+    INFO_2("Task object type at %1 is predefined by user to be a %2.",_pos,_type);
+};
 
 
 private _taskParams = [];
 switch (_type) do {
-
-
     case ("CIV"): {
-        private _civ = [_pos] call mitm_courierTasks_fnc_spawnCiv;
-        private _veh = [_pos] call mitm_courierTasks_fnc_spawnCivStaticVehicle;
-        _civ setVariable ["mitm_courierTasks_civOwnedVehicle",_veh];
-
+        private _civ = objNull;
+        private _veh = objNull;
+        if (isNil "_taskObject") then {
+            _civ = [_pos] call FUNC(spawnCiv);
+            _veh = [_pos] call FUNC(spawnCivStaticVehicle);
+            _civ setVariable [QGVAR(civOwnedVehicle),_veh];
+        } else {
+            _civ = _taskObject;
+            private _civSynchronizedObjects = synchronizedObjects _civ;
+            private _vehID = _civSynchronizedObjects findIf {_x isKindOf "car" || _x isKindOf "tank" || _x isKindOf "helicopter" || _x isKindOf "airplane" || _x isKindOf "ship"};
+            if !(_vehID < 0) then {
+                _veh = _civ setVariable [QGVAR(civOwnedVehicle),_civSynchronizedObjects param [_vehID,objNull]];
+            };
+        };
 
         // add killed EH to penalize courier if he kills civ to interact faster
         _civ addEventHandler ["Killed", {
@@ -42,17 +59,17 @@ switch (_type) do {
         }];
 
 
-        [_civ] remoteExec ["mitm_courierTasks_fnc_createCivInteraction",0,true];
+        [_civ] remoteExec [QFUNC(createCivInteraction),0,true];
         _trigger = [
             _civ,
             [_interactionTime,_interactionTime,0,false],
             ["ANYPLAYER","PRESENT",true],
             {(missionNamespace getVariable ['mitm_courier',objNull]) in (_this select 1)},
             {
-                private _taskObject = (_this select 0) getVariable ["mitm_common_triggerAttachObject",objNull];
-                [_taskObject,(missionNamespace getVariable ['mitm_courier',objNull])] call mitm_courierTasks_fnc_civOnVisible;
+                private _taskObject = (_this select 0) getVariable [QEGVAR(common,triggerAttachObject),objNull];
+                [_taskObject,(missionNamespace getVariable ['mitm_courier',objNull])] call FUNC(civOnVisible);
             }
-        ] call mitm_common_fnc_createTrigger;
+        ] call EFUNC(common,createTrigger);
         _civ setVariable ["mitm_courierTasks_trigger",_trigger];
 
         _taskParams = [!isNull _civ,_civ,format ["Meet up with %1.",name _civ]];
@@ -60,25 +77,24 @@ switch (_type) do {
 
 
     case ("DEADDROP"): {
-        _deadDropLogic = [_pos] call mitm_courierTasks_fnc_createDeadDrop;
-        [_deadDropLogic] remoteExec ["mitm_courierTasks_fnc_createDeadDropInteraction",0,true];
+        _deadDropLogic = [_pos,_taskObject] call FUNC(createDeadDrop);
+        [_deadDropLogic] remoteExec [QFUNC(createDeadDropInteraction),0,true];
         _trigger = [
             _deadDropLogic,
             [_interactionTime,_interactionTime,0,false],
             ["ANYPLAYER","PRESENT",true],
             {(missionNamespace getVariable ['mitm_courier',objNull]) in (_this select 1)},
-            {[(_this select 0) getVariable ["mitm_common_triggerAttachObject",objNull],"Dead Drop",10] remoteExec ["mitm_common_fnc_temp3dMarker",missionNamespace getVariable ["mitm_courier",objNull],false]}
-        ] call mitm_common_fnc_createTrigger;
-        _deadDropLogic setVariable ["mitm_courierTasks_trigger",_trigger];
+            {[(_this select 0) getVariable [QEGVAR(common,triggerAttachObject),objNull],"Dead Drop",10] remoteExec [QEFUNC(common,temp3dMarker),missionNamespace getVariable ["mitm_courier",objNull],false]}
+        ] call EFUNC(common,createTrigger);
+        _deadDropLogic setVariable [QGVAR(trigger),_trigger];
 
         _taskParams = [!isNull _deadDropLogic,_deadDropLogic,"Deposit cache in dead drop."];
     };
-
-
 };
 
+
 if !(_taskParams select 0) then {
-    _taskParams = [_pos,_blackListTypes + [_type]] call mitm_courierTasks_fnc_createTaskObjects;
+    _taskParams = [_pos,_blackListTypes + [_type]] call FUNC(createTaskObjects);
 };
 
 _taskParams

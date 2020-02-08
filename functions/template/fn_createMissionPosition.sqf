@@ -2,20 +2,27 @@
 
 if (!isServer) exitWith {};
 
-params [["_gameLogic",objNull],["_isLastPosition",false]];
+params [["_gameLogic",objNull],["_isLastPosition",false],"_type"];
 
-if (isNil "MITM_MISSIONPOSITIONS") then {MITM_MISSIONPOSITIONS = []};
+if (isNil "MITM_MISSIONPOSITIONSDATA") then {MITM_MISSIONPOSITIONSDATA = []};
 
-if (_isLastPosition) then {
-    MITM_MISSIONPOSITIONS pushBack (getPos _gameLogic);
-} else {
-    reverse MITM_MISSIONPOSITIONS;
-    MITM_MISSIONPOSITIONS pushBack (getPos _gameLogic);
-    reverse MITM_MISSIONPOSITIONS;
+private _synchronizedObjects = synchronizedObjects _gameLogic;
+private "_taskObject";
+if (count _synchronizedObjects > 0) then {
+    _taskObject = _synchronizedObjects param [0,objNull];
+    _type = ["DEADDROP","CIV"] select (_taskObject isKindOf "CaManBase");
 };
 
-if (count MITM_MISSIONPOSITIONS == 7) then {
-    publicVariable "MITM_MISSIONPOSITIONS";
+if (_isLastPosition) then {
+    MITM_MISSIONPOSITIONSDATA pushBack [getPos _gameLogic,_type,_taskObject];
+} else {
+    reverse MITM_MISSIONPOSITIONSDATA;
+    MITM_MISSIONPOSITIONSDATA pushBack [getPos _gameLogic,_type,_taskObject];
+    reverse MITM_MISSIONPOSITIONSDATA;
+};
+
+if (count MITM_MISSIONPOSITIONSDATA == 7) then {
+    publicVariable "MITM_MISSIONPOSITIONSDATA";
 
     INFO("Mission positions set up.")
 };

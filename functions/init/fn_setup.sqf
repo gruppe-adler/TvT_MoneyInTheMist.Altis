@@ -8,7 +8,7 @@ private _result = [] call mitm_setup_fnc_playArea;
 _result params [["_successful",false]];
 
 if (_successful) then {
-    [MITM_STARTPOSITION_COURIER,MITM_STARTPOSITION_WEST,MITM_STARTPOSITION_EAST,MITM_STARTPOSITION_INDEP,MITM_MISSIONPOSITIONS] call mitm_setup_fnc_createPlayzoneMarkers;
+    [MITM_STARTPOSITION_COURIER,MITM_STARTPOSITION_WEST,MITM_STARTPOSITION_EAST,MITM_STARTPOSITION_INDEP,MITM_MISSIONPOSITIONSDATA] call mitm_setup_fnc_createPlayzoneMarkers;
 
     if (!MITM_ISTEMPLATEMISSION) then {
         [format ["Successful (%1). Confirm playzone with chat command #mitm_accept or repeat setup with #mitm_decline",_repetitions],20,"MITM_SETUP_PLAYZONECONFIRMATION",true,true] call mitm_common_fnc_promptAdminResponse;

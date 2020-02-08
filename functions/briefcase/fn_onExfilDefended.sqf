@@ -12,9 +12,8 @@ if (_ownerSide == sideUnknown) exitWith {ERROR("Exfil trigger does not have an o
 
 private _faction = [MITM_MISSIONPARAM_FACTION_WEST,MITM_MISSIONPARAM_FACTION_EAST,MITM_MISSIONPARAM_FACTION_GUER] select ([WEST,EAST,INDEPENDENT] find _ownerSide);
 private _spawnHeli = [missionConfigFile >> "cfgFactions" >> _faction, "exfilHeli","objNull"] call BIS_fnc_returnConfigEntry;
-private _middleMissionPos = [MITM_MISSIONPOSITIONS select 2,MITM_MISSIONPOSITIONS select 3,MITM_MISSIONPOSITIONS select 4,MITM_MISSIONPOSITIONS select 5] call mitm_common_fnc_getAveragePosition;
 
-private _spawnPos = _middleMissionPos getPos [2*(_middleMissionPos distance2D _trigger),_middleMissionPos getDir _trigger];
+private _spawnPos = MITM_PLAYZONE_CENTER getPos [2*(MITM_PLAYZONE_CENTER distance2D _trigger),MITM_PLAYZONE_CENTER getDir _trigger];
 _spawnPos set [2,150];
 private _heli = [_spawnPos] call compile _spawnHeli;
 /*_heli setPos _spawnPos;*/

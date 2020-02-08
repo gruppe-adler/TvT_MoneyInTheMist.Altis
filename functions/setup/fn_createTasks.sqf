@@ -1,3 +1,5 @@
+// executed by mitm_init_fnc_initMission on game start
+
 #include "component.hpp"
 
 if !(isServer) exitWith {};
@@ -29,15 +31,15 @@ We will give you an exfil location once you have the briefcase.
 
 // courier tasks
 MITM_SETUP_TASKSNAMESPACE setVariable ["courier_deliverTasks",[]];
-_tasksArray = MITM_SETUP_TASKSNAMESPACE getVariable "courier_deliverTasks";
-_missionPositions = +MITM_MISSIONPOSITIONS;
-private _lastPosition = _missionPositions deleteAt (count _missionPositions -1);
+private _tasksArray = MITM_SETUP_TASKSNAMESPACE getVariable "courier_deliverTasks";
+private _missionPositionsData = +MITM_MISSIONPOSITIONSDATA;
+private _lastPosition = _missionPositionsData deleteAt (count _missionPositionsData -1);
 {
-    _taskParams = [_x] call mitm_courierTasks_fnc_createTaskObjects;
+    _taskParams = [_x] call EFUNC(courierTasks,createTaskObjects);
     _taskParams params ["",["_taskObject",objNull],["_taskDescription","TASK CREATION FAILED. This should not happen. Contact the admin."]];
 
     _task = [CIVILIAN,"mitm_deliver_" + (str _forEachIndex),[_taskDescription,"Delivery (Side)",""],_taskObject,"AUTOASSIGNED",1,false,"default"] call BIS_fnc_taskCreate;
     _tasksArray pushBack _task;
 
     _taskObject setVariable ["mitm_courierTasks_task",_task];
-} forEach _missionPositions;
+} forEach _missionPositionsData;

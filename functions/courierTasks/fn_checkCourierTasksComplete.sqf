@@ -18,14 +18,14 @@ if (_sideComplete) then {
         false
     } count _tasksArray;
 
-    _lastPos = MITM_MISSIONPOSITIONS select (count MITM_MISSIONPOSITIONS - 1);
+    _lastPos = (MITM_MISSIONPOSITIONSDATA select (count MITM_MISSIONPOSITIONSDATA - 1)) select 0;
 
     // setting interaction time on last objective higher
     _taskParams = [_lastPos, [], 120] call mitm_courierTasks_fnc_createTaskObjects;
     _taskParams params ["",["_taskObject",objNull]];
 
     _taskDescription = "Make your final delivery, the Briefcase.";
-    _task = [CIVILIAN,"mitm_deliver_" + (str (count MITM_MISSIONPOSITIONS-1)),[_taskDescription,"Delivery (Main)",""],_taskObject,"AUTOASSIGNED",3,true,"default"] call BIS_fnc_taskCreate;
+    _task = [CIVILIAN,"mitm_deliver_" + (str (count MITM_MISSIONPOSITIONSDATA-1)),[_taskDescription,"Delivery (Main)",""],_taskObject,"AUTOASSIGNED",3,true,"default"] call BIS_fnc_taskCreate;
     _tasksArray pushBack _task;
 
     _taskObject setVariable ["mitm_courierTasks_task",_task];
