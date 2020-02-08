@@ -1,10 +1,10 @@
 #include "component.hpp"
 
-params ["_deadDropLogic"];
+params ["_deadDropLogic","_interactionTime"];
 
 private _action = ["mitm_courierTasks_deposit","Deposit Cache","",{
 
-    params ["_deadDropLogic","_caller"];
+    params ["_deadDropLogic","_caller","_interactionTime"];
 
     [_caller,(configFile >> "ACE_Repair" >> "Actions" >> "MiscRepair")] call mitm_common_fnc_doAnimation;
 
@@ -22,8 +22,8 @@ private _action = ["mitm_courierTasks_deposit","Deposit Cache","",{
         hint "canceled hiding cache";
     };
 
-    [20, [_deadDropLogic,_caller], _onComplete, _onCancel, "Hiding Cache..."] call ace_common_fnc_progressBar;
+    [_interactionTime, [_deadDropLogic,_caller], _onComplete, _onCancel, "Hiding Cache..."] call ace_common_fnc_progressBar;
 
-},mitm_courierTasks_fnc_canInteractWithTaskObject,{},[],[0,0,0],4,[false,false,false,false,true]] call ace_interact_menu_fnc_createAction;
+},mitm_courierTasks_fnc_canInteractWithTaskObject,{},_interactionTime,[0,0,0],4,[false,false,false,false,true]] call ace_interact_menu_fnc_createAction;
 
 [_deadDropLogic,0,[],_action] call ace_interact_menu_fnc_addActionToObject;

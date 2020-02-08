@@ -1,6 +1,7 @@
 #include "component.hpp"
 
-params ["_posData",["_blackListTypes",[]], ["_interactionTime", 25]];
+// do not set default value for _interactionTime -> see below
+params ["_posData",["_blackListTypes",[]],"_interactionTime"];
 
 _posData params ["_pos","_type","_taskObject"];
 
@@ -58,11 +59,12 @@ switch (_type) do {
                 };
         }];
 
+        if (isNil "_interactionTime") then {_interactionTime = 6};
+        [_civ,_interactionTime] remoteExec [QFUNC(createCivInteraction),0,true];
 
-        [_civ] remoteExec [QFUNC(createCivInteraction),0,true];
         _trigger = [
             _civ,
-            [_interactionTime,_interactionTime,0,false],
+            [25,25,0,false],
             ["ANYPLAYER","PRESENT",true],
             {(missionNamespace getVariable ['mitm_courier',objNull]) in (_this select 1)},
             {
@@ -78,10 +80,13 @@ switch (_type) do {
 
     case ("DEADDROP"): {
         _deadDropLogic = [_pos,_taskObject] call FUNC(createDeadDrop);
-        [_deadDropLogic] remoteExec [QFUNC(createDeadDropInteraction),0,true];
+
+        if (isNil "_interactionTime") then {_interactionTime = 20};
+        [_deadDropLogic,_interactionTime] remoteExec [QFUNC(createDeadDropInteraction),0,true];
+
         _trigger = [
             _deadDropLogic,
-            [_interactionTime,_interactionTime,0,false],
+            [25,25,0,false],
             ["ANYPLAYER","PRESENT",true],
             {(missionNamespace getVariable ['mitm_courier',objNull]) in (_this select 1)},
             {[(_this select 0) getVariable [QEGVAR(common,triggerAttachObject),objNull],"Dead Drop",10] remoteExec [QEFUNC(common,temp3dMarker),missionNamespace getVariable ["mitm_courier",objNull],false]}

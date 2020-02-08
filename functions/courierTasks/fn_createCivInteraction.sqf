@@ -1,10 +1,10 @@
 #include "component.hpp"
 
-params ["_civ"];
+params ["_civ","_interactionTime"];
 
 
 private _modifier = {
-    params ["_target", "_caller", "_params", "_actionData"];
+    params ["_target", "_caller", "", "_actionData"];
     private _actionText = if (alive _target) then {
         "Hand over delivery"
     } else {
@@ -15,10 +15,10 @@ private _modifier = {
 
 private _action = ["mitm_courierTasks_deliver","MODIFIED TEXT","",{
 
-    params ["_civ","_caller"];
+    params ["_civ","_caller", "_interactionTime"];
 
     // interaction time is zero currently
-    
+
 
     if (!alive _civ) exitWith {
         private _killer = _civ getVariable ["mitm_civKiller", objNull];
@@ -48,8 +48,8 @@ private _action = ["mitm_courierTasks_deliver","MODIFIED TEXT","",{
         hint "canceled handing over";
     };
 
-    [6, [_civ,_caller], _onComplete, _onCancel, "Doing business..."] call ace_common_fnc_progressBar;
+    [_interactionTime, [_civ,_caller], _onComplete, _onCancel, "Doing business..."] call ace_common_fnc_progressBar;
 
-},mitm_courierTasks_fnc_canInteractWithTaskObject,{},[],[0,0,0],4,[false,false,false,false,true],_modifier] call ace_interact_menu_fnc_createAction;
+},mitm_courierTasks_fnc_canInteractWithTaskObject,{},_interactionTime,[0,0,0],4,[false,false,false,false,true],_modifier] call ace_interact_menu_fnc_createAction;
 
 [_civ,0,["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToObject;
