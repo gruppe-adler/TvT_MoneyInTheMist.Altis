@@ -21,6 +21,7 @@ if (isNil "_deadDrop") then {
     _deadDrop = selectRandom _possibleObjects;
 };
 
-private _deadDropLogic = createAgent ["Logic",getPos _deadDrop,[],0,"CAN_COLLIDE"];
+private _deadDropLogic = createAgent ["Logic",[0,0,0],[],0,"CAN_COLLIDE"];
+_deadDropLogic setPosASL getPosASL _deadDrop;
 
 _deadDropLogic
