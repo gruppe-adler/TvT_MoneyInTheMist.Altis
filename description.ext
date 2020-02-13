@@ -81,6 +81,9 @@ class GRAD_Replay {
     upload = 1;                                       // upload replay to server (0/1)
 };
 
+//SETTINGS =====================================================================
+cba_settings_hasSettingsFile = 1;
+
 //SOUNDS =======================================================================
 class CfgSounds {
 

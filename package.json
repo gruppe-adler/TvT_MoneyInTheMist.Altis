@@ -16,6 +16,7 @@
         "grad-listbuymenu": "^0.8.0",
         "grad-loadout": "^4.10.4",
         "grad-scoreboard": ">=0.1.1",
-        "grad-winratetracker": ">=0.0.2"
+        "grad-winratetracker": ">=0.0.2",
+        "grad-tvtsettings": ">=0.0.1"
     }
 }
